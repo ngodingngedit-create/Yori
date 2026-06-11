@@ -34,7 +34,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <nav class="navbar" :class="{ 'scrolled': isScrolled }">
+  <nav class="navbar" :class="{ 'scrolled': isScrolled, 'menu-open': isMenuOpen }">
     <div class="navbar-container container">
       <!-- Logo Wordmark -->
       <a href="#" @click.prevent="handleNav('home')" class="logo">
@@ -91,7 +91,20 @@ onUnmounted(() => {
     </div>
 
     <!-- Mobile Drawer Menu -->
-    
+    <div class="mobile-drawer" :class="{ 'open': isMenuOpen }">
+      <div class="mobile-drawer-links">
+        <a href="#hero" @click.prevent="handleNav('home', '#hero')" :class="{ 'active': currentPage === 'home' }">HOME</a>
+        <a href="#store" @click.prevent="handleNav('store')" :class="{ 'active': currentPage === 'store' }">STORE</a>
+        <a href="#albums" @click.prevent="handleNav('home', '#albums')">ALBUM</a>
+        <a href="#highlights" @click.prevent="handleNav('home', '#highlights')">HIGHLIGHTS</a>
+        <a href="#listen" class="btn btn-cyan btn-listen btn-listen-mobile" @click="isMenuOpen = false">
+          <span>LISTEN</span>
+          <svg class="play-icon" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="currentColor">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+        </a>
+      </div>
+    </div>
   </nav>
 </template>
 
@@ -141,7 +154,7 @@ onUnmounted(() => {
     transform: none;
     width: 100%;
     max-width: 100%;
-    height: 60px;
+    height: 96px;
     border-radius: 0;
     border-left: none;
     border-right: none;
@@ -149,6 +162,14 @@ onUnmounted(() => {
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     background-color: rgba(15, 17, 26, 0.95);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    z-index: 1150;
+  }
+
+  .navbar.menu-open {
+    background-color: transparent;
+    border-bottom-color: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
   }
 }
 
@@ -163,8 +184,13 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .navbar-container {
     padding: 0 16px;
+    position: relative;
+    z-index: 1200;
+    width: 100%;
   }
 }
+
+
 
 .logo {
   font-family: var(--font-heading);
@@ -190,7 +216,7 @@ onUnmounted(() => {
     font-size: 1.2rem;
   }
   .logo-ri {
-    height: 60px;
+    height: 80px;
   }
 }
 
@@ -359,34 +385,53 @@ onUnmounted(() => {
 }
 
 /* Mobile Drawer */
-
-
-/* .mobile-drawer.open {
-  right: 0;
+.mobile-drawer {
+  display: none;
 }
 
-.mobile-drawer-links {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 30px;
-}
+@media (max-width: 768px) {
+  .mobile-drawer {
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(14, 16, 20, 0.98);
+    backdrop-filter: blur(20px);
+    z-index: 1100;
+    transition: var(--transition-smooth);
+    align-items: center;
+    justify-content: center;
+  }
 
-.mobile-drawer-links a:not(.btn) {
-  font-family: var(--font-heading);
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  text-decoration: none;
-  letter-spacing: 1px;
-  transition: var(--transition-smooth);
-}
+  .mobile-drawer.open {
+    right: 0;
+  }
 
-.mobile-drawer-links a:not(.btn):hover,
-.mobile-drawer-links a:not(.btn).active {
-  color: var(--accent-cyan);
-  text-shadow: 0 0 10px rgba(255, 42, 109, 0.5);
-} */
+  .mobile-drawer-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .mobile-drawer-links a:not(.btn) {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: var(--transition-smooth);
+  }
+
+  .mobile-drawer-links a:not(.btn):hover,
+  .mobile-drawer-links a:not(.btn).active {
+    color: var(--accent-cyan);
+    text-shadow: 0 0 10px rgba(255, 42, 109, 0.5);
+  }
+}
 
 .btn-listen-mobile {
   margin-top: 15px;
