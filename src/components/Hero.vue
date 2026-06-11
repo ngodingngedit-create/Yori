@@ -507,7 +507,7 @@
   }
 }
 
-/* Radial glow behind portrait */
+/* Radial glow behind mobile portrait */
 .hero-mobile-glow {
   position: absolute;
   inset: 0;
