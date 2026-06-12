@@ -1,112 +1,21 @@
 <script setup>
 import { ref, computed } from 'vue';
-import { selectedHighlight, navigateTo } from '../routerState.js';
+import { selectedHighlight, navigateTo, currentArtist } from '../routerState.js';
+import { artistData } from '../artistData.js';
 
-// Full highlights data (same as Highlights.vue — single source of truth in a real app)
-const allHighlights = [
-  {
-    id: 1,
-    year: '2024',
-    type: 'Netflix Original Film',
-    title: 'LUPA DARATAN',
-    role: "as 'Dina'",
-    media: '/highlight/lupadarat.webp',
-    mediaType: 'image',
-    category: 'Film',
-    platform: 'Netflix',
-    description: 'Membawakan peran Dina dalam film orisinal Netflix bertajuk "Lupa Daratan" — sebuah kisah tentang identitas, kerinduan, dan pencarian jati diri di tengah dua budaya yang berbeda.',
-    icon: 'film'
-  },
-  {
-    id: 2,
-    year: '2024',
-    type: 'Starring at Movie',
-    title: 'KAKA BOSS',
-    role: "Movies as 'Jennie'",
-    media: '/highlight/kakabos.mp4',
-    mediaType: 'video',
-    category: 'Film',
-    platform: 'Bioskop',
-    description: 'Berperan sebagai Jennie dalam film komedi drama "Kaka Boss" — karakter yang penuh semangat, tegar, dan menghadirkan nuansa segar di tengah dinamika persahabatan dan karier.',
-    icon: 'video'
-  },
-  {
-    id: 3,
-    year: '2023',
-    type: 'Brand Ambassador',
-    title: 'Lokapala',
-    role: 'MOBA Games',
-    media: '/highlight/lokapala.jpg',
-    mediaType: 'image',
-    category: 'Gaming',
-    platform: 'PC, Mobile',
-    description: 'Bergabung sebagai voice actress untuk karakter di game Lokapala, membawa karakter dengan suara yang penuh semangat dan emosi.',
-    icon: 'gamepad'
-  },
-  {
-    id: 4,
-    year: '2023',
-    type: 'Starring at Series',
-    title: 'Bardion',
-    role: 'Superhero Series',
-    media: '/highlight/bardion.jpg',
-    mediaType: 'image',
-    category: 'Series',
-    platform: 'Streaming',
-    description: 'Tampil sebagai salah satu karakter utama dalam serial superhero "Bardion" — sebuah kisah fiksi ilmiah yang memadukan aksi, emosi, dan identitas heroik.',
-    icon: 'tv'
-  },
-  {
-    id: 5,
-    year: '2025',
-    type: '1st Album & Showcase',
-    title: '21 GRAMS',
-    role: '"The Anti Climax Act I"',
-    media: '/highlight/21gram.jpg',
-    mediaType: 'image',
-    category: 'Music',
-    platform: 'Streaming, Live',
-    description: 'Album perdana bertajuk "21 Grams — The Anti Climax Act I" hadir sebagai pernyataan artistik yang jujur, mengeksplorasi tema kehilangan, pertumbuhan, dan penerimaan.',
-    icon: 'music'
-  },
-  {
-    id: 6,
-    year: '2024',
-    type: 'Live Session',
-    title: 'SESI DENGAR',
-    role: 'Intimate Acoustic Set',
-    media: '/highlight/sesidengar.jpg',
-    mediaType: 'image',
-    category: 'Music',
-    platform: 'Live Event',
-    description: 'Sesi akustik intim yang menghadirkan YoRi dalam format stripped-down — menyajikan lagu-lagu dengan kedalaman emosi dan keintiman yang jarang terasa di panggung besar.',
-    icon: 'music'
-  },
-  {
-    id: 7,
-    year: '2024',
-    type: 'Music Festival',
-    title: 'PESTAPORA',
-    role: 'Main Stage Performance',
-    media: '/highlight/pestapora.webp',
-    mediaType: 'image',
-    category: 'Festival',
-    platform: 'Jakarta',
-    description: 'Penampilan perdana di panggung utama Pestapora — salah satu festival musik terbesar Indonesia — yang memperkenalkan YoRi kepada ribuan penonton baru.',
-    icon: 'music'
-  }
-];
+// Get active artist highlights list dynamically
+const allHighlights = computed(() => artistData[currentArtist.value].highlights);
 
 // Active highlight — fall back to first if none selected
 const highlight = computed(() => {
   const h = selectedHighlight.value;
-  if (!h) return allHighlights[2]; // default: Lokapala
-  return allHighlights.find(i => i.id === h.id) || allHighlights[2];
+  if (!h) return allHighlights.value[0];
+  return allHighlights.value.find(i => i.id === h.id) || allHighlights.value[0];
 });
 
 // Other highlights for the "MORE HIGHLIGHTS" carousel
 const otherHighlights = computed(() =>
-  allHighlights.filter(h => h.id !== highlight.value.id)
+  allHighlights.value.filter(h => h.id !== highlight.value.id)
 );
 
 const isPlaying = ref(false);

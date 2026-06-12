@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, computed, onMounted } from 'vue';
 import Navbar from './components/Navbar.vue';
 import Hero from './components/Hero.vue';
 import MerchCatalog from './components/MerchCatalog.vue';
@@ -7,7 +7,8 @@ import Highlights from './components/Highlights.vue';
 import Albums from './components/Albums.vue';
 import Footer from './components/Footer.vue';
 import CartDrawer from './components/CartDrawer.vue';
-import { currentPage } from './routerState.js';
+import { currentPage, currentArtist } from './routerState.js';
+import { artistData } from './artistData.js';
 import ProductDetail from './components/ProductDetail.vue';
 import HighlightDetail from './components/HighlightDetail.vue';
 
@@ -19,13 +20,7 @@ const progress = ref(0);
 const duration = ref(0);
 const currentTime = ref(0);
 
-const trackInfo = ref({
-  title: 'Ninety Horsepower',
-  artist: 'YoRi',
-  album: 'The Anti Climax Act I',
-  cover: new URL('./assets/artist.png', import.meta.url).href,
-  src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3' // High-quality sample music
-});
+const trackInfo = computed(() => artistData[currentArtist.value].trackInfo);
 
 const formatTime = (secs) => {
   const m = Math.floor(secs / 60);
@@ -97,7 +92,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="app-layout">
+  <div class="app-layout" :class="'theme-' + currentArtist">
     <!-- Navbar Navigation -->
     <Navbar />
 

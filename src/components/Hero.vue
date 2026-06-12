@@ -1,4 +1,13 @@
+<script setup>
+import { computed } from 'vue';
+import { currentArtist } from '../routerState.js';
+import { artistData } from '../artistData.js';
+
+const activeArtist = computed(() => artistData[currentArtist.value]);
+</script>
+
 <template>
+  <!-- ================= 90 HORSEPOWER HERO SECTION ================= -->
   <header id="hero" class="hero-section">
     <!-- Background vertical stripes pattern -->
     <div class="hero-stripes-bg"></div>
@@ -11,10 +20,11 @@
 
           <!-- Title (desktop only) -->
           <h1 class="hero-title">
-            <span class="yo">Yo</span><span class="ri">RI</span>
+            <span class="yo">{{ activeArtist.titleYo }}</span><span class="ri">{{ activeArtist.titleRi }}</span>
           </h1>
 
-          <!-- Mobile portrait — replaces the title on small screens -->
+          <!-- Mobile portrait/logo — replaces the title on small screens -->
+          <!-- 90 HORSEPOWER MOBILE PORTRAIT & LOGO -->
           <div class="hero-mobile-portrait">
             <div class="hero-mobile-glow"></div>
             <!-- Double orbit rings -->
@@ -32,19 +42,21 @@
             <span class="mobile-cross mcross-1">+</span>
             <span class="mobile-cross mcross-2">+</span>
 
-            <img src="/home/home.png" alt="YoRi Portrait" class="hero-mobile-img" />
-            <div class="hero-mobile-signature">YoRI</div>
+            <img :src="activeArtist.heroImage" :alt="activeArtist.name + ' Portrait'" class="hero-mobile-img" :class="{ 'is-logo': currentArtist === '90hp' }" />
+            <div class="hero-mobile-signature">{{ activeArtist.signature }}</div>
           </div>
 
           <div class="hero-tagline-container">
-            <p class="hero-tagline">I write, I feel, I sing.</p>
+            <!-- 90 HORSEPOWER TAGLINE -->
+            <p class="hero-tagline">{{ activeArtist.tagline }}</p>
             <svg class="sketchy-underline" viewBox="0 0 300 20" fill="none" preserveAspectRatio="none">
               <path d="M5 15 C 80 5, 220 5, 295 12 M 20 18 C 100 12, 210 12, 280 16" stroke="var(--accent-cyan)" stroke-width="2.5" stroke-linecap="round" />
             </svg>
           </div>
 
+          <!-- 90 HORSEPOWER BIO -->
           <p class="hero-bio">
-            YoRI (Aurel Mayori) memulai karier di dunia hiburan sejak usia 9 tahun sebagai aktris. Perjalanan panjangnya dari mantan member idol group hingga solo artist membentuk identitasnya sebagai penulis lagu dengan lirik puitis, penuh emosi, dan selalu bereksplorasi di berbagai genre musik.
+            {{ activeArtist.bio }}
           </p>
 
           <div class="hero-actions-container">
@@ -55,7 +67,7 @@
               </svg>
             </a>
             <a href="#artist" class="btn btn-more-about btn-about-yori">
-              <span>ABOUT YoRi</span>
+              <span>ABOUT {{ activeArtist.name }}</span>
             </a>
           </div>
         </div>
@@ -86,20 +98,22 @@
             <span class="doodle-cross cross-2">+</span>
             <span class="doodle-cross cross-3">+</span>
 
-            <!-- Centered portrait image -->
-            <img src="/home/home.png" alt="YoRi Portrait" class="hero-portrait-img" />
+            <!-- Centered portrait/logo image -->
+            <!-- 90 HORSEPOWER HERO LOGO IMAGE -->
+            <img :src="activeArtist.heroImage" :alt="activeArtist.name + ' Portrait'" class="hero-portrait-img" :class="{ 'is-logo': currentArtist === '90hp' }" />
 
             <!-- Handwritten signature overlay on the right -->
-            <div class="handdrawn-signature">YoRI</div>
+            <div class="handdrawn-signature">{{ activeArtist.signature }}</div>
           </div>
         </div>
       </div>
 
       <!-- Bottom Area: Social Media Metrics Box -->
+      <!-- ================= 90 HORSEPOWER SOCIAL MEDIA CARDS ================= -->
       <div class="hero-social-metrics-row">
         <div class="social-metrics-container">
-          <!-- Instagram -->
-          <div class="social-card">
+          <!-- 90 HORSEPOWER CARD: INSTAGRAM CARD -->
+          <a :href="activeArtist.socials.instagram.url" target="_blank" class="social-card" style="text-decoration: none;">
             <div class="icon-wrapper">
               <svg viewBox="0 0 24 24" width="26" height="26" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
@@ -107,53 +121,53 @@
                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
               </svg>
             </div>
-            <div class="metric-count">238K</div>
+            <div class="metric-count">{{ activeArtist.socials.instagram.count }}</div>
             <div class="metric-label">FOLLOWERS</div>
-            <div class="metric-handle">@yoribeneran</div>
-          </div>
+            <div class="metric-handle">{{ activeArtist.socials.instagram.handle }}</div>
+          </a>
 
           <div class="social-divider"></div>
 
-          <!-- TikTok -->
-          <div class="social-card">
+          <!-- 90 HORSEPOWER CARD: TIKTOK CARD -->
+          <a :href="activeArtist.socials.tiktok.url" target="_blank" class="social-card" style="text-decoration: none;">
             <div class="icon-wrapper">
               <svg viewBox="0 0 24 24" width="26" height="26" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
               </svg>
             </div>
-            <div class="metric-count">535K</div>
+            <div class="metric-count">{{ activeArtist.socials.tiktok.count }}</div>
             <div class="metric-label">FOLLOWERS</div>
-            <div class="metric-handle">@yoribeneran</div>
-          </div>
+            <div class="metric-handle">{{ activeArtist.socials.tiktok.handle }}</div>
+          </a>
 
           <div class="social-divider"></div>
 
-          <!-- X -->
-          <div class="social-card">
+          <!-- 90 HORSEPOWER CARD: X (TWITTER) CARD -->
+          <a :href="activeArtist.socials.x.url" target="_blank" class="social-card" style="text-decoration: none;">
             <div class="icon-wrapper">
               <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
               </svg>
             </div>
-            <div class="metric-count">46.7K</div>
+            <div class="metric-count">{{ activeArtist.socials.x.count }}</div>
             <div class="metric-label">FOLLOWERS</div>
-            <div class="metric-handle">@ItsYoRi</div>
-          </div>
+            <div class="metric-handle">{{ activeArtist.socials.x.handle }}</div>
+          </a>
 
           <div class="social-divider"></div>
 
-          <!-- YouTube -->
-          <div class="social-card">
+          <!-- 90 HORSEPOWER CARD: YOUTUBE CARD -->
+          <a :href="activeArtist.socials.youtube.url" target="_blank" class="social-card" style="text-decoration: none;">
             <div class="icon-wrapper">
               <svg viewBox="0 0 24 24" width="26" height="26" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
                 <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
               </svg>
             </div>
-            <div class="metric-count">181K</div>
-            <div class="metric-label">FOLLOWERS</div>
-            <div class="metric-handle">YoRi</div>
-          </div>
+            <div class="metric-count">{{ activeArtist.socials.youtube.count }}</div>
+            <div class="metric-label">SUBSCRIBERS</div>
+            <div class="metric-handle">{{ activeArtist.socials.youtube.handle }}</div>
+          </a>
         </div>
       </div>
     </div>

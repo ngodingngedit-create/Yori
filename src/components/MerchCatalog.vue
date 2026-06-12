@@ -1,80 +1,17 @@
 <script setup>
 import { ref, computed } from 'vue';
 import { cart, addToCart, updateQuantity } from '../cartState.js';
-import { currentPage, navigateTo } from '../routerState.js';
+import { currentPage, navigateTo, currentArtist } from '../routerState.js';
+import { artistData } from '../artistData.js';
 
-const products = [
-  {
-    id: 1,
-    name: 'YoRI Signature Hoodie',
-    price: 'Rp 350.000',
-    tag: 'Best Seller',
-    category: 'apparel',
-    image: new URL('../assets/merch_hoodie.png', import.meta.url).href
-  },
-  {
-    id: 2,
-    name: 'The Anti Climax CD Album',
-    price: 'Rp 150.000',
-    tag: 'New Release',
-    category: 'music',
-    image: new URL('../assets/merch_cd.png', import.meta.url).href
-  },
-  {
-    id: 3,
-    name: 'YoRI Graphic Printed Tee',
-    price: 'Rp 220.000',
-    tag: 'Limited',
-    category: 'apparel',
-    image: new URL('../assets/merch_tshirt.png', import.meta.url).href
-  },
-  {
-    id: 4,
-    name: 'Official Sticker Pack',
-    price: 'Rp 45.000',
-    tag: 'Accessories',
-    category: 'accessories',
-    image: new URL('../assets/merch.png', import.meta.url).href
-  },
-  {
-    id: 5,
-    name: 'YoRI Acrylic Keychain',
-    price: 'Rp 35.000',
-    tag: 'Accessories',
-    category: 'accessories',
-    image: new URL('../assets/merch.png', import.meta.url).href
-  },
-  {
-    id: 6,
-    name: 'Anti Climax Vinyl Record',
-    price: 'Rp 450.000',
-    tag: 'Limited',
-    category: 'music',
-    image: new URL('../assets/merch_cd.png', import.meta.url).href
-  },
-  {
-    id: 7,
-    name: 'YoRI Beanie Hat',
-    price: 'Rp 120.000',
-    tag: 'New Release',
-    category: 'apparel',
-    image: new URL('../assets/merch_hoodie.png', import.meta.url).href
-  },
-  {
-    id: 8,
-    name: 'Signed Poster Set',
-    price: 'Rp 75.000',
-    tag: 'Exclusive',
-    category: 'bundles',
-    image: new URL('../assets/merch.png', import.meta.url).href
-  }
-];
+// ================= 90 HORSEPOWER PRODUCTS & CARDS CONFIG ================= //
+const products = computed(() => artistData[currentArtist.value].products);
 
 const activeCategory = ref('all');
 
 const filteredProducts = computed(() => {
-  if (activeCategory.value === 'all') return products;
-  return products.filter(p => p.category === activeCategory.value);
+  if (activeCategory.value === 'all') return products.value;
+  return products.value.filter(p => p.category === activeCategory.value);
 });
 
 const selectedItem = ref(null);
@@ -106,6 +43,7 @@ const handleDecrease = (product) => {
 </script>
 
 <template>
+  <!-- ================= 90 HORSEPOWER MERCHANDISE CATALOG SECTION ================= -->
   <section id="merch-catalog" class="catalog-section section" :class="{ 'is-homepage': currentPage === 'home' }">
     <div class="catalog-container container">
       <!-- Centered Section Title -->
@@ -154,6 +92,7 @@ const handleDecrease = (product) => {
       
       <!-- Catalog Grid Layout -->
       <div class="catalog-grid" :class="{ 'horizontal-scroll': currentPage === 'home' }">
+        <!-- ================= 90 HORSEPOWER PRODUCT CARD ================= -->
         <div 
           v-for="product in filteredProducts" 
           :key="product.id" 

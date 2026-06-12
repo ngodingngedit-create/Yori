@@ -1,21 +1,28 @@
 <script setup>
-import { navigateTo } from '../routerState.js';
+import { computed } from 'vue';
+import { navigateTo, currentArtist } from '../routerState.js';
+import { artistData } from '../artistData.js';
+
+const activeArtist = computed(() => artistData[currentArtist.value]);
 </script>
 
 <template>
+  <!-- ================= 90 HORSEPOWER FOOTER SECTION ================= -->
   <footer class="footer">
     <div class="footer-container container">
       <!-- Top Section -->
       <div class="footer-top">
         <!-- Logo -->
         <a href="#" @click.prevent="navigateTo('home')" class="logo">
-          <img src="/logo/logo.png" class="logo-img" alt="YoRI Logo" />
+          <img v-if="currentArtist === 'yori'" src="/logo/logo.png" class="logo-img" alt="YoRI Logo" />
+          <!-- 90 HORSEPOWER LOGO -->
+          <img v-else src="/90horsepower/logo90.png" class="logo-img logo-img-90hp" alt="Ninety Horsepower Logo" />
         </a>
 
         <!-- Social Icons Group -->
         <div class="footer-socials">
           <!-- Instagram -->
-          <a href="#" class="social-icon" aria-label="Instagram">
+          <a :href="activeArtist.socials.instagram.url" target="_blank" class="social-icon" aria-label="Instagram">
             <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
               <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
               <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
@@ -24,31 +31,24 @@ import { navigateTo } from '../routerState.js';
           </a>
 
           <!-- TikTok -->
-          <a href="#" class="social-icon" aria-label="TikTok">
+          <a :href="activeArtist.socials.tiktok.url" target="_blank" class="social-icon" aria-label="TikTok">
             <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
               <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
             </svg>
           </a>
 
           <!-- X -->
-          <a href="#" class="social-icon" aria-label="X">
+          <a :href="activeArtist.socials.x.url" target="_blank" class="social-icon" aria-label="X">
             <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
               <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
             </svg>
           </a>
 
           <!-- YouTube -->
-          <a href="#" class="social-icon" aria-label="YouTube">
+          <a :href="activeArtist.socials.youtube.url" target="_blank" class="social-icon" aria-label="YouTube">
             <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
               <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
               <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
-            </svg>
-          </a>
-
-          <!-- Spotify -->
-          <a href="#" class="social-icon" aria-label="Spotify">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-              <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.586 14.424c-.18.295-.563.387-.857.207-2.377-1.454-5.37-1.783-8.894-1.007-.336.08-.668-.135-.75-.47-.08-.335.136-.667.472-.75 3.858-.875 7.158-.497 9.822 1.134.293.18.388.563.207.856zm1.224-2.724c-.226.367-.707.487-1.074.26-2.72-1.672-6.87-2.157-10.082-1.182-.413.125-.847-.107-.972-.52-.125-.413.108-.847.52-.972 3.676-1.115 8.243-.57 11.35 1.343.366.226.486.707.26 1.073zm.105-2.833C14.707 8.747 9.4 8.57 6.326 9.502c-.477.145-.975-.125-1.12-.602-.145-.477.125-.975.602-1.12C9.336 6.706 15.19 6.9 18.9 9.102c.428.254.57.81.315 1.238-.255.428-.81.57-1.238.315z"/>
             </svg>
           </a>
         </div>
@@ -59,7 +59,7 @@ import { navigateTo } from '../routerState.js';
 
       <!-- Bottom Section -->
       <div class="footer-bottom">
-        <p class="copyright">&copy; 2026 YoRi. All rights reserved.</p>
+        <p class="copyright">&copy; 2026 {{ activeArtist.name }}. All rights reserved.</p>
       </div>
     </div>
   </footer>
@@ -69,7 +69,7 @@ import { navigateTo } from '../routerState.js';
 .footer {
   background-color: var(--bg-dark);
   border-top: 1px solid var(--border-card);
-  padding: 40px 0 25px;
+  padding: 20px 0 15px;
   position: relative;
   z-index: 10;
 }
@@ -79,15 +79,15 @@ import { navigateTo } from '../routerState.js';
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 30px;
-  margin-bottom: 25px;
+  gap: 15px;
+  margin-bottom: 12px;
 }
 
 @media (max-width: 768px) {
   .footer-top {
     flex-direction: column;
     text-align: center;
-    gap: 24px;
+    gap: 12px;
   }
 }
 
@@ -105,9 +105,16 @@ import { navigateTo } from '../routerState.js';
   transition: height var(--transition-smooth);
 }
 
+.logo-img.logo-img-90hp {
+  height: 270px;
+}
+
 @media (max-width: 768px) {
   .logo-img {
     height: 100px;
+  }
+  .logo-img.logo-img-90hp {
+    height: 240px;
   }
 }
 
@@ -162,7 +169,7 @@ import { navigateTo } from '../routerState.js';
   width: 100%;
   height: 1px;
   background-color: var(--border-card);
-  margin-bottom: 25px;
+  margin-bottom: 12px;
 }
 
 .footer-bottom {

@@ -1,161 +1,10 @@
 <script setup>
-import { ref, watch, onUnmounted } from 'vue';
+import { ref, computed, watch, onUnmounted } from 'vue';
+import { currentArtist } from '../routerState.js';
+import { artistData } from '../artistData.js';
 
-const albums = ref([
-  {
-    id: '4PDOTk2LsP8x0dhFd3pqbG', // Pulang
-    title: 'Pulang',
-    type: 'SINGLE',
-    year: '2026',
-    image: 'https://i.scdn.co/image/ab67616d0000b2733286c9c6fdf39ffcc9fc8e67',
-    artist: 'YoRI',
-    glow: 'rgba(0, 180, 216, 0.4)',
-    color: '#00b4d8',
-    spotifyUrl: 'https://open.spotify.com/album/4PDOTk2LsP8x0dhFd3pqbG',
-    appleMusicUrl: 'https://music.apple.com/album/pulang-single/1739501234',
-    isSaved: false,
-    tracks: [
-      { num: '01', title: 'Pulang', artist: 'YoRI', duration: '04:00' }
-    ]
-  },
-  {
-    id: '1ixQM69tYN1UbRpMPa7s1G', // 21 grams
-    title: '21 grams',
-    type: 'ALBUM',
-    year: '2025',
-    image: 'https://i.scdn.co/image/ab67616d0000b273a04955aec8b7c8893461da1a',
-    artist: 'YoRI',
-    glow: 'rgba(255, 42, 109, 0.4)',
-    color: '#ff2a6d',
-    spotifyUrl: 'https://open.spotify.com/album/1ixQM69tYN1UbRpMPa7s1G',
-    appleMusicUrl: 'https://music.apple.com/album/21-grams/1712345678',
-    isSaved: false,
-    tracks: [
-      { num: '01', title: 'Unlock (Indonesian Ver.)', artist: 'YoRI', duration: '04:05' },
-      { num: '02', title: 'Ripple', artist: 'YoRI', duration: '03:28' },
-      { num: '03', title: 'Shōjo Manga', artist: 'YoRI', duration: '04:35' },
-      { num: '04', title: 'Ruby Biru', artist: 'YoRI', duration: '03:54' },
-      { num: '05', title: 'Anti-climax', artist: 'YoRI', duration: '03:12' },
-      { num: '06', title: 'Ghrelin', artist: 'YoRI', duration: '04:40' },
-      { num: '07', title: 'Sunset Latte', artist: 'YoRI', duration: '03:33' },
-      { num: '08', title: 'Resep Untuk Hidup', artist: 'YoRI', duration: '02:59' }
-    ]
-  },
-  {
-    id: '7n0t2w3pd9lQLTSNzoJNxg', // RUSAK
-    title: 'RUSAK',
-    type: 'SINGLE',
-    year: '2025',
-    image: 'https://i.scdn.co/image/ab67616d0000b2736e34a966311fe2709b844d25',
-    artist: 'YoRI',
-    glow: 'rgba(255, 154, 60, 0.4)',
-    color: '#ff9a3c',
-    spotifyUrl: 'https://open.spotify.com/album/7n0t2w3pd9lQLTSNzoJNxg',
-    appleMusicUrl: 'https://music.apple.com/album/rusak-single/1723456789',
-    isSaved: false,
-    tracks: [
-      { num: '01', title: 'RUSAK', artist: 'YoRI', duration: '03:15' }
-    ]
-  },
-  {
-    id: '5pgLGJSi8PYygqTFQ6XjzF', // Ruby Biru
-    title: 'Ruby Biru',
-    type: 'SINGLE',
-    year: '2024',
-    image: 'https://i.scdn.co/image/ab67616d0000b273bdcc44254eda2779b923dabf',
-    artist: 'YoRI',
-    glow: 'rgba(67, 97, 238, 0.4)',
-    color: '#4361ee',
-    spotifyUrl: 'https://open.spotify.com/album/5pgLGJSi8PYygqTFQ6XjzF',
-    appleMusicUrl: 'https://music.apple.com/album/ruby-biru-single/1701234567',
-    isSaved: false,
-    tracks: [
-      { num: '01', title: 'Ruby Biru', artist: 'YoRI', duration: '03:54' }
-    ]
-  },
-  {
-    id: '5UpU9mWvv5Csb4gTST3cgx', // Shojo Manga
-    title: 'Shojo Manga',
-    type: 'SINGLE',
-    year: '2023',
-    image: 'https://i.scdn.co/image/ab67616d0000b27315cc23eaec1f3607315254fd',
-    artist: 'YoRI',
-    glow: 'rgba(138, 43, 226, 0.4)',
-    color: '#8a2be2',
-    spotifyUrl: 'https://open.spotify.com/album/5UpU9mWvv5Csb4gTST3cgx',
-    appleMusicUrl: 'https://music.apple.com/album/shojo-manga-single/1690123456',
-    isSaved: false,
-    tracks: [
-      { num: '01', title: 'Shojo Manga', artist: 'YoRI', duration: '04:35' }
-    ]
-  },
-  {
-    id: '3mqlL06BljjwHn0HKBHs2J', // Ookami Cafe
-    title: 'Ookami Cafe',
-    type: 'EP',
-    year: '2022',
-    image: 'https://i.scdn.co/image/ab67616d0000b273348e39284bf4affa4fcac5a7',
-    artist: 'YoRI',
-    glow: 'rgba(0, 245, 153, 0.4)',
-    color: '#00f599',
-    spotifyUrl: 'https://open.spotify.com/album/3mqlL06BljjwHn0HKBHs2J',
-    appleMusicUrl: 'https://music.apple.com/album/ookami-cafe-ep/1680123457',
-    isSaved: false,
-    tracks: [
-      { num: '01', title: 'Ookami Cafe', artist: 'YoRI', duration: '03:02' },
-      { num: '02', title: 'Sunday Sundae', artist: 'YoRI', duration: '03:15' },
-      { num: '03', title: 'Sunset Latte', artist: 'YoRI', duration: '03:33' }
-    ]
-  },
-  {
-    id: '5ubyR5LtuqpsJiYh58Cxtn', // アンロック (Unlock)
-    title: 'アンロック (Unlock)',
-    type: 'SINGLE',
-    year: '2022',
-    image: 'https://i.scdn.co/image/ab67616d0000b273f71b2f6a7b3c3eba75737a7c',
-    artist: 'YoRI',
-    glow: 'rgba(200, 245, 0, 0.4)',
-    color: '#c8f500',
-    spotifyUrl: 'https://open.spotify.com/album/5ubyR5LtuqpsJiYh58Cxtn',
-    appleMusicUrl: 'https://music.apple.com/album/unlock-single/1670123458',
-    isSaved: false,
-    tracks: [
-      { num: '01', title: 'アンロック (Unlock)', artist: 'YoRI', duration: '04:02' }
-    ]
-  },
-  {
-    id: '7CGGayKl7aZyLhoP0htCWG', // Ripple
-    title: 'Ripple',
-    type: 'SINGLE',
-    year: '2022',
-    image: 'https://i.scdn.co/image/ab67616d0000b273b12b101ef93930979018cbdf',
-    artist: 'YoRI',
-    glow: 'rgba(0, 245, 200, 0.4)',
-    color: '#00f5c8',
-    spotifyUrl: 'https://open.spotify.com/album/7CGGayKl7aZyLhoP0htCWG',
-    appleMusicUrl: 'https://music.apple.com/album/ripple-single/1660123459',
-    isSaved: false,
-    tracks: [
-      { num: '01', title: 'Ripple', artist: 'YoRI', duration: '03:28' }
-    ]
-  },
-  {
-    id: '21Zbq5NGDuH1hr9IfFV41h', // Unlock (Indonesian Ver.)
-    title: 'Unlock (Indonesian Ver.)',
-    type: 'SINGLE',
-    year: '2022',
-    image: 'https://i.scdn.co/image/ab67616d0000b273c44232e5f499fd11c2b2ac4e',
-    artist: 'YoRI',
-    glow: 'rgba(255, 0, 127, 0.4)',
-    color: '#ff007f',
-    spotifyUrl: 'https://open.spotify.com/album/21Zbq5NGDuH1hr9IfFV41h',
-    appleMusicUrl: 'https://music.apple.com/album/unlock-indonesian-ver-single/1650123460',
-    isSaved: false,
-    tracks: [
-      { num: '01', title: 'Unlock (Indonesian Ver.)', artist: 'YoRI', duration: '04:05' }
-    ]
-  }
-]);
+// ================= 90 HORSEPOWER ALBUMS DATA CONFIG ================= //
+const albums = computed(() => artistData[currentArtist.value].albums);
 
 const activeAlbum = ref(null);
 const isPlayerVisible = ref(false);
@@ -224,6 +73,7 @@ onUnmounted(() => {
 </script>
 
 <template>
+  <!-- ================= 90 HORSEPOWER ALBUMS SECTION ================= -->
   <section id="albums" class="albums-section section">
     <div class="albums-container container">
       <!-- Section Header -->
@@ -343,10 +193,10 @@ onUnmounted(() => {
                   </div>
                 </div>
 
-                <!-- Right side: Tracklist, Listen On, Stay Connected -->
+                <!-- Right side: Tracklist/Spotify Embed, Listen On, Stay Connected -->
                 <div class="modal-info-col">
-                  <!-- Tracklist Scroll Area -->
-                  <div class="modal-section tracklist-section">
+                  <!-- Tracklist Scroll Area (YoRI only) -->
+                  <div v-if="currentArtist === 'yori'" class="modal-section tracklist-section">
                     <h4 class="modal-section-title">TRACKLIST</h4>
                     
                     <div class="tracklist-container">
@@ -371,6 +221,24 @@ onUnmounted(() => {
                           </div>
                         </div>
                       </div>
+                    </div>
+                  </div>
+
+                  <!-- Spotify Player Embed (90HP only) -->
+                  <div v-else class="modal-section spotify-modal-section">
+                    <h4 class="modal-section-title">STREAM ARTIST ON SPOTIFY</h4>
+                    <div class="spotify-embed-container">
+                      <iframe 
+                        data-testid="embed-iframe" 
+                        style="border-radius:12px" 
+                        src="https://open.spotify.com/embed/artist/0Dgmxi8oh7NaL332kwpo3a?utm_source=generator&si=d262de95c75e48fb" 
+                        width="100%" 
+                        height="352" 
+                        frameBorder="0" 
+                        allowfullscreen="" 
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                        loading="lazy"
+                      ></iframe>
                     </div>
                   </div>
 
@@ -443,6 +311,18 @@ onUnmounted(() => {
   background-color: var(--bg-dark);
   position: relative;
   z-index: 10;
+}
+
+.spotify-embed-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 12px;
+  border-radius: 12px;
+  background: rgba(30, 30, 32, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
 }
 
 .section-header {
@@ -528,7 +408,7 @@ onUnmounted(() => {
 
 .album-card:hover .album-cover-wrapper {
   border-color: var(--accent-cyan);
-  box-shadow: 0 0 15px rgba(0, 245, 153, 0.25);
+  box-shadow: 0 0 15px var(--accent-glow, rgba(0, 245, 153, 0.25));
 }
 
 /* Metadata formatting */

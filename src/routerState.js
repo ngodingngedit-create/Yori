@@ -1,6 +1,7 @@
 import { ref, nextTick } from 'vue';
 
 export const currentPage = ref('home');
+export const currentArtist = ref('yori');
 export const selectedProduct = ref(null);
 export const selectedHighlight = ref(null);
 

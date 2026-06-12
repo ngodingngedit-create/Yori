@@ -1,80 +1,10 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
-import { navigateTo } from '../routerState.js';
+import { ref, computed, onMounted, onUnmounted } from 'vue';
+import { navigateTo, currentArtist } from '../routerState.js';
+import { artistData } from '../artistData.js';
 
-// Cards mapped 1-to-1 with files in /public/highlight/
-const highlights = [
-  {
-    id: 1,
-    year: '2024',
-    type: 'Netflix Original Film',
-    title: 'LUPA DARATAN',
-    role: "as 'Dina'",
-    media: '/highlight/lupadarat.webp',
-    mediaType: 'image',
-    icon: 'film'
-  },
-  {
-    id: 2,
-    year: '2024',
-    type: 'Starring at Movie',
-    title: 'KAKA BOSS',
-    role: "Movies as 'Jennie'",
-    media: '/highlight/kakabos.mp4',
-    mediaType: 'video',
-    icon: 'video'
-  },
-  {
-    id: 3,
-    year: '2023',
-    type: 'Brand Ambassador',
-    title: 'Lokapala',
-    role: 'MOBA Games',
-    media: '/highlight/lokapala.jpg',
-    mediaType: 'image',
-    icon: 'gamepad'
-  },
-  {
-    id: 4,
-    year: '2023',
-    type: 'Starring at Series',
-    title: 'Bardion',
-    role: 'Superhero Series',
-    media: '/highlight/bardion.jpg',
-    mediaType: 'image',
-    icon: 'tv'
-  },
-  {
-    id: 5,
-    year: '2025',
-    type: '1st Album & Showcase',
-    title: '21 GRAMS',
-    role: '"The Anti Climax Act I"',
-    media: '/highlight/21gram.jpg',
-    mediaType: 'image',
-    icon: 'music'
-  },
-  {
-    id: 6,
-    year: '2024',
-    type: 'Live Session',
-    title: 'SESI DENGAR',
-    role: 'Intimate Acoustic Set',
-    media: '/highlight/sesidengar.jpg',
-    mediaType: 'image',
-    icon: 'music'
-  },
-  {
-    id: 7,
-    year: '2024',
-    type: 'Music Festival',
-    title: 'PESTAPORA',
-    role: 'Main Stage Performance',
-    media: '/highlight/pestapora.webp',
-    mediaType: 'image',
-    icon: 'music'
-  }
-];
+// ================= 90 HORSEPOWER HIGHLIGHTS DATA CONFIG ================= //
+const highlights = computed(() => artistData[currentArtist.value].highlights);
 
 const carouselTrack = ref(null);
 
@@ -144,6 +74,7 @@ onUnmounted(() => {
 </script>
 
 <template>
+  <!-- ================= 90 HORSEPOWER HIGHLIGHTS SECTION ================= -->
   <section id="highlights" class="highlights-section section">
     <div class="highlights-container container">
       <!-- Section Header -->
@@ -154,6 +85,7 @@ onUnmounted(() => {
       <!-- Carousel Track -->
       <div class="carousel-viewport">
         <div class="carousel-track" ref="carouselTrack" @scroll="handleTrackScroll">
+          <!-- ================= 90 HORSEPOWER HIGHLIGHT CARD ================= -->
           <div
             v-for="(item, index) in highlights"
             :key="item.id"

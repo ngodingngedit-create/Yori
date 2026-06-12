@@ -257,3 +257,554 @@ html, body {
   filter: blur(40px);
   animation: breathe 8s infinite ease-in-out;
 }
+
+/* 90HP (Ninety Horsepower) Theme Variables Override */
+.theme-90hp {
+  --bg-dark: #141416; /* Black but not too black - nice sleek charcoal */
+  --bg-card: rgba(30, 30, 32, 0.6);
+  --bg-card-hover: rgba(45, 45, 48, 0.85);
+  --border-card: rgba(255, 255, 255, 0.1);
+  --accent-cyan: #ffffff; /* White */
+  --accent-cyan-hover: #e4e4e7; /* Off-white / light gray */
+  --accent-glow: rgba(255, 255, 255, 0.25);
+  --accent-purple: #a1a1aa; /* Zinc-400 (slate/zinc-gray) instead of purple */
+  --accent-purple-glow: rgba(255, 255, 255, 0.08);
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+}
+
+/* Force layout background color */
+.theme-90hp.app-layout {
+  background-color: var(--bg-dark) !important;
+}
+
+/* 90HP Navbar & Footer logo style */
+.logo-img-90hp {
+  height: 180px;
+  width: auto;
+  object-fit: contain;
+  transition: var(--transition-smooth);
+  filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.35));
+  transform: translateY(25px);
+}
+
+.footer .logo-img-90hp {
+  height: 270px;
+}
+
+@media (max-width: 768px) {
+  .navbar-container .logo-img-90hp {
+    height: 120px;
+    transform: translateY(10px);
+  }
+  .footer .logo-img-90hp {
+    height: 240px;
+  }
+}
+
+/* 90HP Hero Band Portrait Styles */
+.hero-portrait-img.is-logo {
+  width: 115% !important;
+  height: 115% !important;
+  max-width: none !important;
+  object-fit: contain !important;
+  object-position: bottom center !important;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+  filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.5)) !important;
+  transform: translateX(-35px) translateY(-110px) !important;
+}
+
+.hero-mobile-img.is-logo {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  object-fit: contain !important;
+  object-position: bottom center !important;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.4)) !important;
+  margin-bottom: 0px !important;
+}
+
+/* 90HP Unique UI/UX Design Changes: Sharp, Boxy, Industrial Minimalist Aesthetic */
+.theme-90hp .navbar,
+.theme-90hp .nav-dropdown-menu,
+.theme-90hp .dropdown-item,
+.theme-90hp .mobile-drawer,
+.theme-90hp .btn,
+.theme-90hp .glow-card,
+.theme-90hp .glow-card::before,
+.theme-90hp .product-card,
+.theme-90hp .product-card::before,
+.theme-90hp .catalog-quantity-picker,
+.theme-90hp .filter-btn,
+.theme-90hp .notification-toast,
+.theme-90hp .highlight-card,
+.theme-90hp .card-glass-banner,
+.theme-90hp .card-play-button,
+.theme-90hp .album-cover-wrapper,
+.theme-90hp .player-modal-content,
+.theme-90hp .detail-artwork-wrapper,
+.theme-90hp .detail-capsule,
+.theme-90hp .spotify-cta-btn,
+.theme-90hp .mini-control-btn,
+.theme-90hp .listen-btn,
+.theme-90hp .music-player-overlay,
+.theme-90hp .play-pause-btn,
+.theme-90hp .progress-bar-fill,
+.theme-90hp .cart-badge,
+.theme-90hp .cart-trigger-btn,
+.theme-90hp .social-card,
+.theme-90hp .social-metrics-container,
+.theme-90hp .social-icon-btn,
+.theme-90hp .social-icon,
+.theme-90hp .modal-close-btn,
+.theme-90hp .product-main-view,
+.theme-90hp .thumb-btn,
+.theme-90hp .size-btn,
+.theme-90hp .quantity-picker-wrapper,
+.theme-90hp .wishlist-btn,
+.theme-90hp .cart-toast,
+.theme-90hp .cart-drawer-panel,
+.theme-90hp .cart-item-card,
+.theme-90hp .item-img,
+.theme-90hp .quantity-picker,
+.theme-90hp .qty-btn,
+.theme-90hp .checkout-btn,
+.theme-90hp .close-btn,
+.theme-90hp .remove-btn {
+  border-radius: 4px !important;
+}
+
+/* Section title drop shadow override */
+.theme-90hp .section-title {
+  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.2)) !important;
+  background: linear-gradient(135deg, #ffffff 40%, #a1a1aa 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+}
+
+.theme-90hp .glow-text-cyan {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.4) !important;
+}
+
+/* Hero Section: Grunge Grid & Vinyl Record Backdrop */
+.theme-90hp .hero-stripes-bg {
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.015) 0px,
+    rgba(255, 255, 255, 0.015) 1px,
+    transparent 1px,
+    transparent 40px
+  ), repeating-linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.015) 0px,
+    rgba(255, 255, 255, 0.015) 1px,
+    transparent 1px,
+    transparent 40px
+  ) !important;
+}
+
+/* Tilted orbits hide to differentiate from YoRi pop theme */
+.theme-90hp .planet-ring,
+.theme-90hp .hero-mobile-ring {
+  display: none !important;
+}
+
+/* Vinyl record concentric grooves illustration */
+.theme-90hp .planet-circle {
+  background: repeating-radial-gradient(
+    circle,
+    #1d1d20 0px,
+    #1d1d20 4px,
+    #141416 5px,
+    #141416 8px
+  ) !important;
+  border: 2px solid rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.9), inset 0 0 25px rgba(255, 255, 255, 0.05) !important;
+  width: 540px !important;
+  height: 540px !important;
+}
+
+/* Hide celestial doodles */
+.theme-90hp .star-doodle {
+  display: none !important;
+}
+
+/* Retro rock stamped tickets instead of handwritten signature script */
+.theme-90hp .handdrawn-signature,
+.theme-90hp .hero-mobile-signature {
+  font-family: var(--font-heading) !important;
+  font-weight: 800 !important;
+  background: #ffffff !important;
+  color: #141416 !important;
+  padding: 6px 16px !important;
+  border: 2px solid #ffffff !important;
+  text-shadow: none !important;
+  transform: rotate(-3deg) !important;
+  font-size: 1.4rem !important;
+  letter-spacing: 2px !important;
+  box-shadow: 4px 4px 0px rgba(255, 255, 255, 0.2) !important;
+}
+
+.theme-90hp .hero-mobile-signature {
+  font-size: 1.1rem !important;
+  bottom: 15% !important;
+  right: 12% !important;
+}
+
+/* High-Contrast Monochrome Buttons */
+.theme-90hp .btn-cyan {
+  background: #ffffff !important;
+  color: #141416 !important;
+  border: 1px solid #ffffff !important;
+  box-shadow: 4px 4px 0px rgba(255, 255, 255, 0.15) !important;
+}
+.theme-90hp .btn-cyan:hover {
+  background: #e4e4e7 !important;
+  box-shadow: 6px 6px 0px rgba(255, 255, 255, 0.25) !important;
+  transform: translate(-2px, -2px) !important;
+}
+.theme-90hp .btn-outline {
+  border: 1.5px solid rgba(255, 255, 255, 0.25) !important;
+}
+.theme-90hp .btn-outline:hover {
+  border-color: #ffffff !important;
+  color: #ffffff !important;
+  background-color: rgba(255, 255, 255, 0.08) !important;
+}
+.theme-90hp .btn-text:hover {
+  color: #ffffff !important;
+}
+
+/* Highlights Carousel overrides */
+.theme-90hp .highlight-card {
+  --tint-color: rgba(0, 0, 0, 0.25) !important;
+  --glow-color: rgba(255, 255, 255, 0.3) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+.theme-90hp .card-vignette-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(20, 20, 22, 0.1) 0%,
+    rgba(20, 20, 22, 0.45) 50%,
+    rgba(20, 20, 22, 0.96) 100%
+  ) !important;
+}
+.theme-90hp .card-glass-banner {
+  background: rgba(22, 22, 24, 0.95) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.18) !important;
+}
+.theme-90hp .card-play-button {
+  background-color: #ffffff !important;
+  color: #141416 !important;
+}
+.theme-90hp .card-play-button:hover {
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Merch Catalog overrides */
+.theme-90hp .product-card {
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+.theme-90hp .product-card:hover {
+  border-color: #ffffff !important;
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.08) !important;
+}
+.theme-90hp .product-card.selected-card {
+  border-color: #ffffff !important;
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.15) !important;
+}
+.theme-90hp .product-card.selected-card::before {
+  background: linear-gradient(to bottom, #ffffff, transparent) !important;
+}
+.theme-90hp .product-badge {
+  background: #ffffff !important;
+  color: #141416 !important;
+  clip-path: none !important;
+  height: auto !important;
+  width: auto !important;
+  padding: 4px 10px !important;
+  font-size: 0.68rem !important;
+  font-weight: 800 !important;
+  top: 12px !important;
+  left: 12px !important;
+  box-shadow: 2px 2px 0px rgba(255, 255, 255, 0.25) !important;
+}
+.theme-90hp .product-badge::before,
+.theme-90hp .product-badge::after {
+  display: none !important;
+}
+.theme-90hp .product-price {
+  color: #ffffff !important;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.2) !important;
+}
+.theme-90hp .catalog-qty-num.has-items {
+  color: #ffffff !important;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.4) !important;
+}
+.theme-90hp .catalog-qty-btn:hover:not(:disabled) {
+  color: #ffffff !important;
+  background-color: rgba(255, 255, 255, 0.08) !important;
+}
+.theme-90hp .notification-toast {
+  border-color: #ffffff !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 255, 255, 0.1) !important;
+  background: rgba(20, 20, 22, 0.95) !important;
+}
+.theme-90hp .toast-content svg {
+  stroke: #ffffff !important;
+}
+
+/* Albums overrides */
+.theme-90hp .album-card:hover .album-cover-wrapper {
+  border-color: #ffffff !important;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.25) !important;
+}
+.theme-90hp .player-modal-content {
+  background: rgba(20, 20, 22, 0.95) !important;
+  border-color: rgba(255, 255, 255, 0.18) !important;
+  --album-glow: rgba(255, 255, 255, 0.15) !important;
+  --album-color: #ffffff !important;
+}
+.theme-90hp .modal-player-col {
+  background: rgba(0, 0, 0, 0.4) !important;
+}
+.theme-90hp .spotify-cta-btn:hover {
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.4) !important;
+}
+.theme-90hp .track-row:hover .track-title-text,
+.theme-90hp .track-row:hover .track-num {
+  color: #ffffff !important;
+}
+.theme-90hp .is-playing-row .track-title-text,
+.theme-90hp .is-playing-row .track-num {
+  color: #ffffff !important;
+}
+.theme-90hp .row-play-icon {
+  color: #ffffff !important;
+}
+
+/* Global Music Player & Cart overrides */
+.theme-90hp .music-player-overlay {
+  background: rgba(20, 20, 22, 0.95) !important;
+  border-color: rgba(255, 255, 255, 0.18) !important;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8), 0 0 25px rgba(255, 255, 255, 0.05) !important;
+}
+.theme-90hp .play-pause-btn {
+  background: #ffffff !important;
+  color: #141416 !important;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.15) !important;
+}
+.theme-90hp .play-pause-btn:hover {
+  background-color: #e4e4e7 !important;
+  box-shadow: 0 6px 15px rgba(255, 255, 255, 0.25) !important;
+}
+.theme-90hp .progress-bar-fill {
+  background-color: #ffffff !important;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.6) !important;
+}
+.theme-90hp .cart-badge {
+  background-color: #ffffff !important;
+  color: #141416 !important;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.4) !important;
+}
+
+/* Hero social cards overrides */
+.theme-90hp .social-card:hover {
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.08) !important;
+  transform: translateY(-4px) !important;
+}
+.theme-90hp .social-card:hover .icon-wrapper {
+  color: #ffffff !important;
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3)) !important;
+}
+.theme-90hp .social-divider {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Cart drawer panel overrides */
+.theme-90hp .cart-drawer-panel {
+  border-left-color: rgba(255, 255, 255, 0.15) !important;
+  box-shadow: -10px 0 40px rgba(0, 0, 0, 0.8), -5px 0 20px rgba(255, 255, 255, 0.05) !important;
+}
+.theme-90hp .cart-item-card {
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+.theme-90hp .cart-item-card:hover {
+  border-color: #ffffff !important;
+}
+
+/* Product Detail Ribbon */
+.theme-90hp .best-seller-ribbon {
+  clip-path: none !important;
+  background: #ffffff !important;
+  color: #141416 !important;
+  font-size: 0.65rem !important;
+  box-shadow: 2px 2px 0px rgba(255, 255, 255, 0.25) !important;
+  height: auto !important;
+  width: auto !important;
+  padding: 6px 12px !important;
+  top: 16px !important;
+  left: 16px !important;
+}
+.theme-90hp .best-seller-ribbon::before {
+  display: none !important;
+}
+
+.hero-mobile-img.is-logo {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  object-fit: contain !important;
+  object-position: bottom center !important;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.4)) !important;
+  margin-bottom: 0px !important;
+}
+
+/* Navbar Accordion / Dropdown Menus */
+.nav-dropdown-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(15px);
+  background: rgba(18, 20, 28, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 12px 8px;
+  min-width: 190px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  opacity: 0;
+  visibility: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 243, 255, 0.05);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1100;
+}
+
+.nav-dropdown-wrapper:hover .nav-dropdown-menu,
+.nav-dropdown-wrapper.active .nav-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(5px);
+}
+
+.dropdown-item {
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 10px;
+  transition: var(--transition-smooth);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  letter-spacing: 0.5px;
+}
+
+.dropdown-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--accent-cyan);
+  transform: translateX(4px);
+}
+
+.dropdown-item.active {
+  color: var(--accent-cyan);
+  background: rgba(0, 243, 255, 0.08);
+  border-left: 3px solid var(--accent-cyan);
+  border-radius: 0 10px 10px 0;
+}
+
+/* Mobile Drawer Accordion styling */
+.mobile-accordion-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.mobile-accordion-icon {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.3s ease;
+  color: var(--text-secondary);
+}
+
+.mobile-accordion-icon.open {
+  transform: rotate(180deg);
+  color: var(--accent-cyan);
+}
+
+.mobile-accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.mobile-accordion-content.open {
+  max-height: 120px;
+  margin-top: 10px;
+}
+
+.mobile-dropdown-item {
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+  color: var(--text-secondary) !important;
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+.mobile-dropdown-item.active {
+  color: var(--accent-cyan) !important;
+  text-shadow: 0 0 8px rgba(0, 243, 255, 0.4);
+}
+
+/* 90HP Compressed Footer Gaps */
+.theme-90hp .footer {
+  padding: 10px 0 8px !important;
+}
+
+.theme-90hp .footer-top {
+  margin-bottom: 5px !important;
+  gap: 10px !important;
+}
+
+.theme-90hp .footer-divider {
+  margin-bottom: 5px !important;
+}
+
+@media (max-width: 768px) {
+  .theme-90hp .footer-top {
+    gap: 6px !important;
+  }
+}
+
+/* 90HP Spotify embed container border-radius override */
+.theme-90hp .spotify-embed-container,
+.theme-90hp .spotify-embed-container iframe {
+  border-radius: 4px !important;
+}
+
