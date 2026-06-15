@@ -235,21 +235,15 @@ const handleDecrease = (product) => {
 
 @media (max-width: 576px) {
   .catalog-grid:not(.horizontal-scroll) {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px 10px;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 10px 16px;
   }
   .catalog-grid.horizontal-scroll {
     gap: 14px;
   }
-}
-
-@media (max-width: 360px) {
-  .catalog-grid:not(.horizontal-scroll) {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
   .product-card:not(.horizontal-card) {
-    max-width: 300px;
+    max-width: 340px; /* Slightly larger card size */
     margin: 0 auto;
   }
 }

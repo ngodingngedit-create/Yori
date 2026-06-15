@@ -5,11 +5,13 @@
   --bg-card: rgba(22, 25, 38, 0.6);
   --bg-card-hover: rgba(30, 34, 51, 0.8);
   --border-card: rgba(255, 255, 255, 0.08);
+  --accent-cyan-rgb: 255, 42, 109;
   --accent-cyan: #ff2a6d;
   --accent-cyan-hover: #ff0055;
-  --accent-glow: rgba(255, 42, 109, 0.45);
+  --accent-glow: rgba(var(--accent-cyan-rgb), 0.45);
+  --accent-purple-rgb: 139, 92, 246;
   --accent-purple: #8b5cf6;
-  --accent-purple-glow: rgba(139, 92, 246, 0.35);
+  --accent-purple-glow: rgba(var(--accent-purple-rgb), 0.35);
   
   --text-primary: #ffffff;
   --text-secondary: #9ea9bf;
@@ -20,6 +22,13 @@
   --font-tagline: 'Caveat', cursive;
   
   --transition-smooth: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Dynamic button variables */
+  --btn-cyan-grad-1: #ff2a6d;
+  --btn-cyan-grad-2: #d3104c;
+  --btn-cyan-grad-hover-1: #ff558f;
+  --btn-cyan-grad-hover-2: #ff0055;
+  --btn-cyan-text: #ffffff;
 }
 
 * {
@@ -105,7 +114,7 @@ html, body {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 0 15px rgba(255, 42, 109, 0.25));
+  filter: drop-shadow(0 0 15px rgba(var(--accent-cyan-rgb), 0.25));
 }
 
 @media (max-width: 768px) {
@@ -131,7 +140,7 @@ html, body {
 /* Common Typography & Glow Elements */
 .glow-text-cyan {
   color: var(--accent-cyan);
-  text-shadow: 0 0 10px rgba(255, 42, 109, 0.5);
+  text-shadow: 0 0 10px rgba(var(--accent-cyan-rgb), 0.5);
 }
 
 .gradient-text {
@@ -157,15 +166,15 @@ html, body {
 }
 
 .btn-cyan {
-  background: linear-gradient(135deg, #ff2a6d 0%, #d3104c 100%);
-  color: #ffffff;
+  background: linear-gradient(135deg, var(--btn-cyan-grad-1) 0%, var(--btn-cyan-grad-2) 100%);
+  color: var(--btn-cyan-text);
   border: none;
-  box-shadow: 0 4px 14px rgba(255, 42, 109, 0.4);
+  box-shadow: 0 4px 14px rgba(var(--accent-cyan-rgb), 0.4);
 }
 
 .btn-cyan:hover {
-  background: linear-gradient(135deg, #ff558f 0%, #ff0055 100%);
-  box-shadow: 0 6px 20px rgba(255, 42, 109, 0.6);
+  background: linear-gradient(135deg, var(--btn-cyan-grad-hover-1) 0%, var(--btn-cyan-grad-hover-2) 100%);
+  box-shadow: 0 6px 20px rgba(var(--accent-cyan-rgb), 0.6);
   transform: translateY(-2px);
 }
 
@@ -178,7 +187,7 @@ html, body {
 .btn-outline:hover {
   border-color: var(--accent-cyan);
   color: var(--accent-cyan);
-  box-shadow: 0 0 12px rgba(255, 42, 109, 0.2);
+  box-shadow: 0 0 12px rgba(var(--accent-cyan-rgb), 0.2);
   transform: translateY(-2px);
 }
 
@@ -216,7 +225,7 @@ html, body {
   inset: 0;
   border-radius: 16px;
   padding: 1px;
-  background: linear-gradient(to bottom, rgba(255, 42, 109, 0.1), transparent);
+  background: linear-gradient(to bottom, rgba(var(--accent-cyan-rgb), 0.1), transparent);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -226,8 +235,8 @@ html, body {
 
 .glow-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(255, 42, 109, 0.3);
-  box-shadow: 0 8px 30px rgba(255, 42, 109, 0.08);
+  border-color: rgba(var(--accent-cyan-rgb), 0.3);
+  box-shadow: 0 8px 30px rgba(var(--accent-cyan-rgb), 0.08);
 }
 
 .glow-card:hover::before {
@@ -250,7 +259,7 @@ html, body {
   position: absolute;
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, rgba(255, 42, 109, 0.15) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(var(--accent-cyan-rgb), 0.15) 0%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
   z-index: 0;
@@ -807,4 +816,99 @@ html, body {
 .theme-90hp .spotify-embed-container iframe {
   border-radius: 4px !important;
 }
+
+/* Burakku Theme Variables & Styles (Simple Monochrome - No Gradients) */
+.theme-burakku {
+  --bg-dark: #0f111a; /* Standard dark background matching main aesthetic */
+  --bg-card: rgba(22, 25, 38, 0.6);
+  --bg-card-hover: rgba(30, 34, 51, 0.85);
+  --border-card: rgba(255, 255, 255, 0.08);
+  --accent-cyan-rgb: 255, 255, 255; /* Crisp white */
+  --accent-cyan: #ffffff;
+  --accent-cyan-hover: #e4e4e7;
+  --accent-glow: rgba(255, 255, 255, 0.1);
+  --accent-purple-rgb: 255, 255, 255;
+  --accent-purple: #ffffff;
+  --accent-purple-glow: rgba(255, 255, 255, 0.05);
+  --text-secondary: #9ea9bf;
+  --text-muted: #5e6b81;
+  
+  --btn-cyan-grad-1: #ffffff;
+  --btn-cyan-grad-2: #ffffff; /* Solid white */
+  --btn-cyan-grad-hover-1: #e4e4e7;
+  --btn-cyan-grad-hover-2: #e4e4e7; /* Solid gray */
+  --btn-cyan-text: #0f111a;
+}
+
+.theme-burakku.app-layout {
+  background-color: var(--bg-dark) !important;
+}
+
+/* Remove text gradients in Burakku theme */
+.theme-burakku .section-title {
+  filter: none !important;
+  background: none !important;
+  color: #ffffff !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  -webkit-text-fill-color: initial !important;
+}
+
+.theme-burakku .section-title-burakku span {
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  -webkit-text-fill-color: initial !important;
+  color: var(--accent-cyan) !important;
+}
+
+.theme-burakku .title-line-2 {
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  -webkit-text-fill-color: initial !important;
+  color: #ffffff !important;
+  filter: none !important;
+}
+
+.theme-burakku .glow-text-cyan {
+  text-shadow: none !important;
+}
+
+/* Remove backgrounds and section gradients */
+.theme-burakku .burakku-artists-section {
+  background: var(--bg-dark) !important;
+}
+
+.theme-burakku .hero-noise {
+  background: none !important;
+}
+
+.theme-burakku .artist-card-glow {
+  display: none !important;
+}
+
+.theme-burakku .artist-card:hover {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4) !important;
+}
+
+.theme-burakku .burakku-product-card:hover {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3) !important;
+}
+
+.theme-burakku .burakku-product-card.selected-card {
+  border-color: rgba(255, 255, 255, 0.5) !important;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Burakku Logo styling overrides */
+.logo-img-burakku {
+  filter: brightness(0) invert(1);
+  background-color: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
 

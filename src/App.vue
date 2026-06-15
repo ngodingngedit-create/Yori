@@ -11,6 +11,7 @@ import { currentPage, currentArtist } from './routerState.js';
 import { artistData } from './artistData.js';
 import ProductDetail from './components/ProductDetail.vue';
 import HighlightDetail from './components/HighlightDetail.vue';
+import Burakku from './components/Burakku.vue';
 
 // Interactive Audio Player State
 const isPlayerVisible = ref(false);
@@ -92,13 +93,16 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="app-layout" :class="'theme-' + currentArtist">
+  <div class="app-layout" :class="currentPage === 'burakku' ? 'theme-burakku' : 'theme-' + currentArtist">
     <!-- Navbar Navigation -->
     <Navbar />
 
     <!-- Page Sections -->
     <main class="main-content">
-      <template v-if="currentPage === 'home'">
+      <template v-if="currentPage === 'burakku'">
+        <Burakku />
+      </template>
+      <template v-else-if="currentPage === 'home'">
         <Hero />
         <MerchCatalog />
         <Highlights />

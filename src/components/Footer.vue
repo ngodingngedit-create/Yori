@@ -1,6 +1,6 @@
 <script setup>
 import { computed } from 'vue';
-import { navigateTo, currentArtist } from '../routerState.js';
+import { navigateTo, currentArtist, currentPage } from '../routerState.js';
 import { artistData } from '../artistData.js';
 
 const activeArtist = computed(() => artistData[currentArtist.value]);
@@ -14,7 +14,8 @@ const activeArtist = computed(() => artistData[currentArtist.value]);
       <div class="footer-top">
         <!-- Logo -->
         <a href="#" @click.prevent="navigateTo('home')" class="logo">
-          <img v-if="currentArtist === 'yori'" src="/logo/logo.png" class="logo-img" alt="YoRI Logo" />
+          <img v-if="currentPage === 'burakku'" src="/logo/Burakku Logo black (1).png" class="logo-img logo-img-burakku" alt="Burakku Logo" />
+          <img v-else-if="currentArtist === 'yori'" src="/logo/logo.png" class="logo-img" alt="YoRI Logo" />
           <!-- 90 HORSEPOWER LOGO -->
           <img v-else src="/90horsepower/logo90.png" class="logo-img logo-img-90hp" alt="Ninety Horsepower Logo" />
         </a>
@@ -109,12 +110,22 @@ const activeArtist = computed(() => artistData[currentArtist.value]);
   height: 270px;
 }
 
+.logo-img.logo-img-burakku {
+  height: 52px;
+  padding: 7px 18px;
+  transform: none;
+}
+
 @media (max-width: 768px) {
   .logo-img {
     height: 100px;
   }
   .logo-img.logo-img-90hp {
     height: 240px;
+  }
+  .logo-img.logo-img-burakku {
+    height: 40px !important;
+    padding: 5px 12px !important;
   }
 }
 
