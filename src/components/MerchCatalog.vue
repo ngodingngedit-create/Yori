@@ -108,7 +108,8 @@ const handleDecrease = (product) => {
           
           <!-- Image Wrapper -->
           <div class="product-img-wrapper" @click="navigateTo('product-detail', null, product)" style="cursor: pointer;">
-            <img :src="product.image" :alt="product.name" class="product-image" />
+            <img :src="product.image" :alt="product.name" class="product-image primary-image" />
+            <img v-if="product.hoverImage" :src="product.hoverImage" :alt="product.name" class="product-image hover-image" />
           </div>
           
           <!-- Product Info -->
@@ -116,6 +117,15 @@ const handleDecrease = (product) => {
             <div class="product-header-row" @click="navigateTo('product-detail', null, product)" style="cursor: pointer;">
               <h3 class="product-name">{{ product.name }}</h3>
               <p class="product-price">{{ product.price }}</p>
+              
+              <!-- Location Info -->
+              <div class="product-location">
+                <svg viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2.5" fill="none" class="location-icon">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <span>{{ product.location || 'Jakarta' }}</span>
+              </div>
             </div>
             
             <!-- Quantity Picker Footer -->
@@ -139,6 +149,17 @@ const handleDecrease = (product) => {
                 >
                   +
                 </button>
+              </div>
+            </div>
+
+            <!-- Creator Info Section -->
+            <div class="product-creator-row">
+              <div class="creator-circle-avatar" :class="currentArtist === 'yori' ? 'avatar-yori' : 'avatar-90hp'">
+                <img :src="currentArtist === 'yori' ? '/logo/logo.png' : '/90horsepower/logo90.png'" alt="Logo" class="creator-avatar-img" />
+              </div>
+              <div class="creator-meta">
+                <span class="creator-label">Disediakan oleh</span>
+                <span class="creator-name-bold">{{ currentArtist === 'yori' ? 'YoRI' : '90 Horsepower' }}</span>
               </div>
             </div>
           </div>
@@ -280,6 +301,7 @@ const handleDecrease = (product) => {
   padding: 1px;
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0.08), transparent);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
@@ -378,11 +400,97 @@ const handleDecrease = (product) => {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.2, 1, 0.3, 1);
+  transition: transform 0.6s cubic-bezier(0.2, 1, 0.3, 1), opacity 0.5s ease;
+}
+
+.hover-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  z-index: 1;
 }
 
 .product-card:hover .product-image {
   transform: scale(1.05);
+}
+
+.product-card:hover .hover-image {
+  opacity: 1;
+}
+
+/* Location & Creator info styling */
+.product-location {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+  align-self: flex-start;
+}
+
+.location-icon {
+  color: var(--accent-cyan);
+}
+
+.product-creator-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  align-self: flex-start;
+}
+
+.creator-circle-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1.2px solid rgba(255, 255, 255, 0.1);
+  transition: border-color 0.3s ease;
+  flex-shrink: 0;
+}
+
+.avatar-yori {
+  border-color: rgba(255, 42, 109, 0.2);
+}
+
+.avatar-90hp {
+  border-color: rgba(0, 243, 255, 0.2);
+}
+
+.creator-avatar-img {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+}
+
+.creator-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1px;
+}
+
+.creator-label {
+  font-size: 0.62rem;
+  color: var(--text-muted);
+  line-height: 1.1;
+}
+
+.creator-name-bold {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.1;
 }
 
 .product-info {

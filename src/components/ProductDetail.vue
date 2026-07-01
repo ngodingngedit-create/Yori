@@ -249,6 +249,12 @@ const toggleWishlist = () => {
           <!-- Description Paragraph -->
           <p class="product-description">{{ activeProduct.description }}</p>
 
+          <!-- Additional info for Pre-order or Stock -->
+          <div v-if="activeProduct.stockInfo || activeProduct.poPeriod" class="product-extra-details-block" style="margin-bottom: 24px; border-left: 3px solid var(--accent-cyan); padding-left: 12px;">
+            <p v-if="activeProduct.stockInfo" style="color: var(--accent-cyan); font-weight: 600; margin: 4px 0; font-size: 0.9rem;">{{ activeProduct.stockInfo }}</p>
+            <p v-if="activeProduct.poPeriod" style="color: var(--text-muted); margin: 4px 0; font-size: 0.82rem;">{{ activeProduct.poPeriod }}</p>
+          </div>
+
           <!-- Details Specifications list (below description) -->
           <div class="specs-section">
             <h3 class="specs-title">DETAILS</h3>
@@ -332,7 +338,7 @@ const toggleWishlist = () => {
           </div>
 
           <!-- Bottom Trust Badges row -->
-          <div class="trust-badge-row">
+          <!-- <div class="trust-badge-row">
             <div class="trust-badge">
               <svg viewBox="0 0 24 24" width="20" height="20" stroke="var(--accent-cyan)" stroke-width="1.8" fill="none">
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
@@ -376,7 +382,7 @@ const toggleWishlist = () => {
                 <span class="trust-sub">Delivered to You</span>
               </div>
             </div>
-          </div>
+          </div> -->
 
         </div>
       </div>

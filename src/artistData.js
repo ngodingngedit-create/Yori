@@ -8,10 +8,8 @@ export const artistData = {
     bio: 'YoRI (Aurel Mayori) memulai karier di dunia hiburan sejak usia 9 tahun sebagai aktris. Perjalanan panjangnya dari mantan member idol group hingga solo artist membentuk identitasnya sebagai penulis lagu dengan lirik puitis, penuh emosi, dan selalu bereksplorasi di berbagai genre musik.',
     heroImage: '/home/home.png',
     socials: {
-      instagram: { count: '238K', handle: '@yoribeneran', url: 'https://instagram.com/yoribeneran' },
-      tiktok: { count: '535K', handle: '@yoribeneran', url: 'https://tiktok.com/@yoribeneran' },
-      x: { count: '46.7K', handle: '@ItsYoRi', url: 'https://x.com/ItsYoRi' },
-      youtube: { count: '181K', handle: 'YoRi', url: 'https://youtube.com/@YoRi' }
+      youtube: { count: '181K', handle: '@ItsYoRI', url: 'https://www.youtube.com/@ItsYoRI' },
+      spotify: { count: 'LISTEN', handle: 'YoRI', url: 'https://open.spotify.com/artist/7KWwccszhCF3f6pYeVWMTD?si=kbw9rHLWQveCzeIBIsaoaQ' }
     },
     trackInfo: {
       title: 'Ninety Horsepower',
@@ -336,18 +334,18 @@ export const artistData = {
     ]
   },
   '90hp': {
-    name: '90 Horses Power',
+    name: '90HorsesPower',
     titleYo: '90',
     titleRi: 'HP',
     signature: '90HP',
     tagline: 'Cerita jujur dalam distorsi gitar.',
     bio: 'Ninety Horsepower (90HP) adalah grup musik indie rock asal Jakarta yang terbentuk sejak September 2013 oleh sekumpulan mahasiswa Universitas Indonesia. Menggabungkan lirik emosional, energi garage rock, dan estetika pop alternatif.',
-    heroImage: '/home/90home1.png',
+    heroImage: '/home/90hp_hero.png',
     socials: {
-      instagram: { count: '3.5K', handle: '@90horsepower', url: 'https://www.instagram.com/90horsepower/' },
-      tiktok: { count: '1.8K', handle: '@90horsepower', url: 'https://www.tiktok.com/' },
-      x: { count: '512', handle: '@90horsepower', url: 'https://x.com/' },
-      youtube: { count: '2.6K', handle: '90HP Official', url: 'https://www.youtube.com/' }
+      instagram: { count: '3.5K', handle: '@90horsepower', url: 'https://www.instagram.com/90horsepower' },
+      tiktok: { count: '1.8K', handle: '@90horsepower', url: 'https://www.tiktok.com/@90horsepower' },
+      youtube: { count: '2.6K', handle: '@90HorsePower', url: 'https://www.youtube.com/@90HorsePower' },
+      spotify: { count: 'LISTEN', handle: '90horsepower', url: 'https://open.spotify.com/intl-id/artist/0Dgmxi8oh7NaL332kwpo3a?si=RGDOT7jOSU6hedoqpoE5ZQ' }
     },
     trackInfo: {
       title: 'Gusar',
@@ -359,67 +357,27 @@ export const artistData = {
     products: [
       {
         id: 101,
-        name: '90HP Official Band Tee',
-        price: 'Rp 200.000',
-        tag: 'Best Seller',
-        category: 'apparel',
-        image: new URL('./assets/merch_tshirt.png', import.meta.url).href
+        name: 'CD Album Pagi Pasti Kembali',
+        price: 'Rp 35.000',
+        tag: '',
+        category: 'music',
+        image: '/90horsepower/cd_pagi_pasti_kembali.png',
+        stockInfo: 'Ready Stock 30pcs',
+        location: 'Jakarta',
+        description: 'CD Album fisik "Pagi Pasti Kembali" karya Ninety Horsepower. Berisi trek alternatif dengan distorsi garage rock yang emosional.'
       },
       {
         id: 102,
-        name: 'Gusar CD Single',
-        price: 'Rp 75.000',
-        tag: 'New Release',
-        category: 'music',
-        image: new URL('./assets/merch_cd.png', import.meta.url).href
-      },
-      {
-        id: 103,
-        name: 'Re: sign-gret-try Vinyl Record',
-        price: 'Rp 400.000',
-        tag: 'Limited',
-        category: 'music',
-        image: new URL('./assets/merch_cd.png', import.meta.url).href
-      },
-      {
-        id: 104,
-        name: '90HP Logo Enamel Pin',
-        price: 'Rp 35.000',
-        tag: 'Accessories',
-        category: 'accessories',
-        image: new URL('./assets/merch.png', import.meta.url).href
-      },
-      {
-        id: 105,
-        name: '90HP Sticker Pack',
-        price: 'Rp 25.000',
-        tag: 'Accessories',
-        category: 'accessories',
-        image: new URL('./assets/merch.png', import.meta.url).href
-      },
-      {
-        id: 106,
-        name: 'Retry Oversized Hoodie',
-        price: 'Rp 380.000',
-        tag: 'Limited',
+        name: 'Tshirt GUSAR',
+        price: 'Rp 120.000',
+        tag: 'Pre-Order',
         category: 'apparel',
-        image: new URL('./assets/merch_hoodie.png', import.meta.url).href
-      },
-      {
-        id: 107,
-        name: 'Gusar Totebag',
-        price: 'Rp 90.000',
-        tag: 'New Release',
-        category: 'accessories',
-        image: new URL('./assets/merch.png', import.meta.url).href
-      },
-      {
-        id: 108,
-        name: 'Band Member Postcard Set',
-        price: 'Rp 50.000',
-        tag: 'Exclusive',
-        category: 'bundles',
-        image: new URL('./assets/merch.png', import.meta.url).href
+        image: '/90horsepower/tshirt_gusar_kids.png',
+        hoverImage: '/90horsepower/tshirt_gusar_models.png',
+        stockInfo: 'belum termasuk ongkir.',
+        poPeriod: 'Periode Pre-Order > 1 July sd 14 July',
+        location: 'Jakarta',
+        description: 'T-shirt eksklusif edisi terbatas singel GUSAR dari Ninety Horsepower. Terbuat dari bahan Cotton Combed berkualitas tinggi dengan sablon grafis retro.'
       }
     ],
     highlights: [

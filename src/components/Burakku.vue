@@ -7,7 +7,7 @@ import { artistData } from '../artistData.js';
 // ===== MERCH (COMBINED) =====
 const allProducts = computed(() => {
   const yoriProducts = artistData.yori.products.map(p => ({ ...p, creator: 'YoRI' }));
-  const hpProducts = artistData['90hp'].products.map(p => ({ ...p, creator: '90 Horse Power' }));
+  const hpProducts = artistData['90hp'].products.map(p => ({ ...p, creator: '90 Horsepower' }));
   return [...yoriProducts, ...hpProducts];
 });
 
@@ -113,8 +113,8 @@ const goToArtist = (artistKey) => {
         </h1>
 
         <p class="burakku-hero-subtitle">
-          Burakku adalah agensi kreatif yang menaungi artis-artis berbakat Indonesia.
-          Kami percaya musik bukan sekadar nada — ia adalah identitas, cerita, dan pergerakan.
+          Burakku is an independent music label from Indonesia.
+We work with artists who believe melody can be loud, vulnerability can be powerful, and pop culture can cross borders. Inspired by the spirit of Japanese alternative music, we help artists create lasting works, memorable shows, and communities that grow together.
         </p>
 
         <div class="burakku-hero-actions">
@@ -185,7 +185,7 @@ const goToArtist = (artistKey) => {
               </div>
               <div class="artist-info">
                 <div class="artist-tag">INDIE BAND</div>
-                <h3 class="artist-name-card">90 Horse Power</h3>
+                <h3 class="artist-name-card">90 Horsepower</h3>
                 <p class="artist-bio-card">
                   Band indie rock dari Jakarta sejak 2013. Distorsi gitar, lirik jujur, dan energi garage rock yang autentik.
                 </p>
@@ -246,14 +246,24 @@ const goToArtist = (artistKey) => {
 
             <!-- Image -->
             <div class="burakku-product-img-wrap" @click="navigateTo('product-detail', null, product)" style="cursor:pointer;">
-              <img :src="product.image" :alt="product.name" class="burakku-product-img" />
+              <img :src="product.image" :alt="product.name" class="burakku-product-img primary-img" />
+              <img v-if="product.hoverImage" :src="product.hoverImage" :alt="product.name" class="burakku-product-img hover-img" />
             </div>
 
             <!-- Info -->
             <div class="burakku-product-info">
-              <div @click="navigateTo('product-detail', null, product)" style="cursor:pointer;">
+              <div @click="navigateTo('product-detail', null, product)" style="cursor:pointer; width: 100%;">
                 <h3 class="burakku-product-name">{{ product.name }}</h3>
                 <p class="burakku-product-price">{{ product.price }}</p>
+                
+                <!-- Location Info -->
+                <div class="burakku-product-location">
+                  <svg viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2.5" fill="none" class="burakku-location-icon">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  <span>{{ product.location || 'Jakarta' }}</span>
+                </div>
               </div>
 
               <div class="burakku-qty-row">
@@ -264,19 +274,14 @@ const goToArtist = (artistKey) => {
                 <button @click="handleIncrease(product)" class="qty-btn qty-btn-add">+</button>
               </div>
 
-              <!-- Creator Section -->
-              <div class="burakku-creator-section">
-                <div class="burakku-creator-logo-wrap" :class="product.creator === 'YoRI' ? 'wrap-yori' : 'wrap-90hp'">
-                  <img
-                    :src="product.creator === 'YoRI' ? '/logo/logo.png' : '/90horsepower/logo90.png'"
-                    :alt="product.creator"
-                    class="burakku-creator-logo"
-                    :class="product.creator === 'YoRI' ? 'creator-logo-yori' : 'creator-logo-90hp'"
-                  />
+              <!-- Creator Info Section -->
+              <div class="burakku-product-creator-row">
+                <div class="burakku-creator-circle-avatar" :class="product.creator === 'YoRI' ? 'avatar-yori' : 'avatar-90hp'">
+                  <img :src="product.creator === 'YoRI' ? '/logo/logo.png' : '/90horsepower/logo90.png'" alt="Logo" class="burakku-creator-avatar-img" />
                 </div>
-                <div class="burakku-creator-text-wrap">
-                  <span class="burakku-disediakan-teks">Disediakan oleh</span>
-                  <span class="burakku-creator-nama">{{ product.creator }}</span>
+                <div class="burakku-creator-meta">
+                  <span class="burakku-creator-label">Disediakan oleh</span>
+                  <span class="burakku-creator-name-bold">{{ product.creator }}</span>
                 </div>
               </div>
             </div>
@@ -556,7 +561,7 @@ const goToArtist = (artistKey) => {
   font-size: 1.1rem;
   color: var(--text-secondary);
   line-height: 1.8;
-  max-width: 600px;
+  max-width: 800px;
   margin: 0 auto 40px;
 }
 
@@ -1224,112 +1229,75 @@ const goToArtist = (artistKey) => {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 86%, 0 100%);
 }
 
-/* Creator Section (positioned below quantity row, left-aligned) */
-.burakku-creator-section {
+/* Location & Creator info styling for Burakku catalog cards */
+.burakku-product-location {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-top: 14px;
-  padding-top: 12px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08); /* Thin gray line separator */
+  gap: 4px;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 2px;
   align-self: flex-start;
-  width: 100%;
 }
 
-.burakku-creator-logo-wrap {
-  width: 60px;
-  height: 44px;
+.burakku-location-icon {
+  color: var(--accent-cyan);
+}
+
+.burakku-product-creator-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  align-self: flex-start;
+}
+
+.burakku-creator-circle-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  border: 1.2px solid rgba(255, 255, 255, 0.1);
+  transition: border-color 0.3s ease;
   flex-shrink: 0;
 }
 
-.burakku-creator-logo-wrap.wrap-yori {
-  width: 65px;
-  height: 68px;
+.burakku-creator-circle-avatar.avatar-yori {
+  border-color: rgba(255, 42, 109, 0.2);
 }
 
-.burakku-creator-logo-wrap.wrap-90hp {
-  width: 108px;
-  height: 44px;
-  justify-content: flex-start;
+.burakku-creator-circle-avatar.avatar-90hp {
+  border-color: rgba(0, 243, 255, 0.2);
 }
 
-.burakku-creator-logo {
+.burakku-creator-avatar-img {
+  width: 80%;
+  height: 80%;
   object-fit: contain;
-  display: block;
 }
 
-.burakku-creator-logo.creator-logo-yori {
-  height: 58px;
-  width: auto;
-}
-
-.burakku-creator-logo.creator-logo-90hp {
-  height: 72px;
-  width: auto;
-  transform: scale(2.0);
-  transform-origin: left center;
-  margin-left: 10px;
-  margin-top: 30px;
-}
-
-.burakku-creator-text-wrap {
+.burakku-creator-meta {
   display: flex;
   flex-direction: column;
-  line-height: 1.25;
-  text-align: left;
+  align-items: flex-start;
+  gap: 1px;
 }
 
-.burakku-disediakan-teks {
-  font-size: 0.65rem;
+.burakku-creator-label {
+  font-size: 0.62rem;
   color: var(--text-muted);
-  font-family: var(--font-body);
-  font-weight: 500;
+  line-height: 1.1;
 }
 
-.burakku-creator-nama {
-  font-size: 0.8rem;
-  font-weight: 800;
+.burakku-creator-name-bold {
+  font-size: 0.78rem;
+  font-weight: 700;
   color: var(--text-primary);
-  font-family: var(--font-heading);
-}
-
-@media (max-width: 480px) {
-  .burakku-creator-section {
-    gap: 8px;
-    margin-top: 10px;
-    padding-top: 8px;
-  }
-  .burakku-creator-logo-wrap {
-    width: 48px;
-    height: 34px;
-  }
-  .burakku-creator-logo-wrap.wrap-yori {
-    width: 50px;
-    height: 50px;
-  }
-  .burakku-creator-logo-wrap.wrap-90hp {
-    width: 82px;
-    height: 34px;
-    justify-content: flex-start;
-  }
-  .burakku-disediakan-teks {
-    font-size: 0.6rem;
-  }
-  .burakku-creator-nama {
-    font-size: 0.72rem;
-  }
-  .burakku-creator-logo.creator-logo-yori {
-    height: 44px;
-  }
-  .burakku-creator-logo.creator-logo-90hp {
-    height: 54px;
-    transform-origin: left center;
-    margin-left: 8px;
-    margin-top: 20px;
-  }
+  line-height: 1.1;
 }
 
 .burakku-product-img-wrap {
@@ -1345,11 +1313,49 @@ const goToArtist = (artistKey) => {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+  transition: transform 0.5s cubic-bezier(0.2, 1, 0.3, 1), opacity 0.5s ease;
+}
+
+.hover-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  z-index: 1;
 }
 
 .burakku-product-card:hover .burakku-product-img {
   transform: scale(1.05);
+}
+
+.burakku-product-card:hover .hover-img {
+  opacity: 1;
+}
+
+/* Additional stock & PO info styles */
+.burakku-product-detail-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-top: 4px;
+  font-size: 0.7rem;
+  line-height: 1.3;
+  width: 100%;
+}
+
+.burakku-detail-stock-info {
+  color: var(--accent-cyan);
+  font-weight: 600;
+  text-transform: none;
+}
+
+.burakku-detail-po-period {
+  color: var(--text-muted);
+  font-size: 0.65rem;
+  font-weight: 400;
 }
 
 .burakku-product-info {
@@ -1398,6 +1404,7 @@ const goToArtist = (artistKey) => {
   width: fit-content;
   min-width: 90px;
   align-self: flex-end;
+  margin-top: auto;
   transition: border-color 0.3s ease;
 }
 

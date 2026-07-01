@@ -174,6 +174,7 @@ onUnmounted(() => {
           @click.prevent="handleNav('burakku', '#burakku-artists')" 
           class="nav-link" 
           :class="{ 'active': activeAnchor === '#burakku-artists' }"
+          v-show="false"
         >
           ARTISTS
         </a>
@@ -183,6 +184,7 @@ onUnmounted(() => {
           @click.prevent="handleNav('home', '#highlights')" 
           class="nav-link" 
           :class="{ 'active': activeAnchor === '#highlights' }"
+          v-show="false"
         >
           HIGHLIGHTS
         </a>
@@ -310,13 +312,13 @@ onUnmounted(() => {
           <a href="#burakku-hero" @click.prevent="handleNav('burakku', '#burakku-hero')" :class="{ 'active': activeAnchor === '#burakku-hero' || !activeAnchor }">HOME</a>
           <a href="#burakku-merch" @click.prevent="handleNav('burakku', '#burakku-merch')" :class="{ 'active': activeAnchor === '#burakku-merch' }">STORE</a>
           <a href="#burakku-albums" @click.prevent="handleNav('burakku', '#burakku-albums')" :class="{ 'active': activeAnchor === '#burakku-albums' }">ALBUM</a>
-          <a href="#burakku-artists" @click.prevent="handleNav('burakku', '#burakku-artists')" :class="{ 'active': activeAnchor === '#burakku-artists' }">ARTISTS</a>
+          <a v-show="false" href="#burakku-artists" @click.prevent="handleNav('burakku', '#burakku-artists')" :class="{ 'active': activeAnchor === '#burakku-artists' }">ARTISTS</a>
         </template>
         <template v-else>
           <a href="#" @click.prevent="handleNav('home')" :class="{ 'active': currentPage === 'home' && !activeAnchor }">HOME</a>
           <a href="#store" @click.prevent="handleNav('store')" :class="{ 'active': currentPage === 'store' }">STORE</a>
           <a href="#albums" @click.prevent="handleNav('home', '#albums')" :class="{ 'active': activeAnchor === '#albums' }">ALBUM</a>
-          <a href="#highlights" @click.prevent="handleNav('home', '#highlights')" :class="{ 'active': activeAnchor === '#highlights' }">HIGHLIGHTS</a>
+          <a v-show="false" href="#highlights" @click.prevent="handleNav('home', '#highlights')" :class="{ 'active': activeAnchor === '#highlights' }">HIGHLIGHTS</a>
         </template>
         
         <a href="#listen" class="btn btn-cyan btn-listen btn-listen-mobile" @click="isMenuOpen = false">
@@ -523,7 +525,7 @@ onUnmounted(() => {
     height: 36px !important;
   }
   .logo-ri.logo-img-90hp {
-    height: 52px !important;
+    height: 76px !important;
     transform: none !important;
   }
   .logo-ri.logo-img-burakku {

@@ -219,7 +219,7 @@
 }
 
 .social-card:hover {
-  transform: translateY(-5px);
+  /* No vertical card movement */
 }
 
 .icon-wrapper {
@@ -233,6 +233,7 @@
   opacity: 1;
   color: var(--accent-cyan);
   filter: drop-shadow(0 0 8px rgba(255, 42, 109, 0.6));
+  transform: scale(1.15);
 }
 
 .instagram svg, .tiktok svg, .youtube svg {
@@ -278,6 +279,46 @@
 @media (max-width: 768px) {
   .social-divider {
     display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .social-metrics-container {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    padding: 24px 12px !important;
+    gap: 0 !important;
+    max-width: 100%;
+    scrollbar-width: none;
+  }
+  .social-metrics-container::-webkit-scrollbar {
+    display: none;
+  }
+  .social-card {
+    flex: 0 0 100px !important;
+    min-width: 100px !important;
+  }
+  .social-card:not(.last-social-card) {
+    border-right: 1px solid rgba(255, 42, 109, 0.15) !important;
+  }
+  .theme-90hp .social-card:not(.last-social-card) {
+    border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
+  }
+  .metric-count {
+    font-size: 1.25rem !important;
+  }
+  .metric-label {
+    font-size: 0.5rem !important;
+    letter-spacing: 0.5px !important;
+  }
+  .metric-handle {
+    font-size: 0.62rem !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 90px;
   }
 }
 </style>

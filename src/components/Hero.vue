@@ -109,65 +109,39 @@ const activeArtist = computed(() => artistData[currentArtist.value]);
       </div>
 
       <!-- Bottom Area: Social Media Metrics Box -->
-      <!-- ================= 90 HORSEPOWER SOCIAL MEDIA CARDS ================= -->
+      <!-- ================= DYNAMIC SOCIAL MEDIA CARDS ================= -->
       <div class="hero-social-metrics-row">
-        <div class="social-metrics-container">
-          <!-- 90 HORSEPOWER CARD: INSTAGRAM CARD -->
-          <a :href="activeArtist.socials.instagram.url" target="_blank" class="social-card" style="text-decoration: none;">
-            <div class="icon-wrapper">
-              <svg viewBox="0 0 24 24" width="26" height="26" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-              </svg>
-            </div>
-            <div class="metric-count">{{ activeArtist.socials.instagram.count }}</div>
-            <div class="metric-label">FOLLOWERS</div>
-            <div class="metric-handle">{{ activeArtist.socials.instagram.handle }}</div>
-          </a>
-
-          <div class="social-divider"></div>
-
-          <!-- 90 HORSEPOWER CARD: TIKTOK CARD -->
-          <a :href="activeArtist.socials.tiktok.url" target="_blank" class="social-card" style="text-decoration: none;">
-            <div class="icon-wrapper">
-              <svg viewBox="0 0 24 24" width="26" height="26" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
-              </svg>
-            </div>
-            <div class="metric-count">{{ activeArtist.socials.tiktok.count }}</div>
-            <div class="metric-label">FOLLOWERS</div>
-            <div class="metric-handle">{{ activeArtist.socials.tiktok.handle }}</div>
-          </a>
-
-          <div class="social-divider"></div>
-
-          <!-- 90 HORSEPOWER CARD: X (TWITTER) CARD -->
-          <a :href="activeArtist.socials.x.url" target="_blank" class="social-card" style="text-decoration: none;">
-            <div class="icon-wrapper">
-              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-              </svg>
-            </div>
-            <div class="metric-count">{{ activeArtist.socials.x.count }}</div>
-            <div class="metric-label">FOLLOWERS</div>
-            <div class="metric-handle">{{ activeArtist.socials.x.handle }}</div>
-          </a>
-
-          <div class="social-divider"></div>
-
-          <!-- 90 HORSEPOWER CARD: YOUTUBE CARD -->
-          <a :href="activeArtist.socials.youtube.url" target="_blank" class="social-card" style="text-decoration: none;">
-            <div class="icon-wrapper">
-              <svg viewBox="0 0 24 24" width="26" height="26" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
-                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
-              </svg>
-            </div>
-            <div class="metric-count">{{ activeArtist.socials.youtube.count }}</div>
-            <div class="metric-label">SUBSCRIBERS</div>
-            <div class="metric-handle">{{ activeArtist.socials.youtube.handle }}</div>
-          </a>
+        <div class="social-metrics-container" :style="{ '--num-socials': Object.keys(activeArtist.socials).length }">
+          <template v-for="(social, key, index) in activeArtist.socials" :key="key">
+            <a :href="social.url" target="_blank" class="social-card" :class="{ 'last-social-card': index === Object.keys(activeArtist.socials).length - 1 }" style="text-decoration: none;">
+              <div class="icon-wrapper" :class="key">
+                <!-- Instagram -->
+                <svg v-if="key === 'instagram'" viewBox="0 0 24 24" width="26" height="26" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+                <!-- TikTok -->
+                <svg v-else-if="key === 'tiktok'" viewBox="0 0 24 24" width="26" height="26" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
+                </svg>
+                <!-- YouTube -->
+                <svg v-else-if="key === 'youtube'" viewBox="0 0 24 24" width="26" height="26" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+                  <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                </svg>
+                <!-- Spotify -->
+                <svg v-else-if="key === 'spotify'" viewBox="0 0 24 24" width="26" height="26" fill="currentColor">
+                  <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.586 14.424c-.18.295-.565.387-.86.207-2.377-1.454-5.37-1.783-8.892-.982-.336.076-.67-.135-.747-.472-.077-.336.136-.67.472-.747 3.844-.877 7.14-.5 9.82 1.14.296.18.387.563.207.86zm1.226-2.723c-.227.367-.707.487-1.074.26-2.72-1.672-6.87-2.157-10.078-1.182-.413.125-.85-.107-.975-.52-.125-.413.107-.85.52-.975 3.665-1.112 8.232-.572 11.347 1.343.367.227.487.708.26 1.074zm.106-2.833C14.444 8.766 8.7 8.577 5.372 9.587c-.53.16-1.09-.142-1.25-.672-.16-.53.142-1.09.672-1.25 3.818-1.16 10.15-.94 14.164 1.442.477.285.632.9.347 1.378-.285.477-.9.632-1.378.347z"/>
+                </svg>
+              </div>
+              <div class="metric-count">{{ social.count }}</div>
+              <div class="metric-label">{{ key === 'youtube' ? 'SUBSCRIBERS' : (key === 'spotify' ? 'SPOTIFY' : 'FOLLOWERS') }}</div>
+              <div class="metric-handle">{{ social.handle }}</div>
+            </a>
+            
+            <div v-if="index < Object.keys(activeArtist.socials).length - 1" class="social-divider"></div>
+          </template>
         </div>
       </div>
     </div>
@@ -806,6 +780,9 @@ const activeArtist = computed(() => artistData[currentArtist.value]);
   padding: 25px 40px;
   position: relative;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  max-width: calc(var(--num-socials) * 280px);
+  margin: 0 auto;
+  width: 100%;
 }
 
 .social-metrics-container::before {
@@ -825,24 +802,50 @@ const activeArtist = computed(() => artistData[currentArtist.value]);
 @media (max-width: 768px) {
   .social-metrics-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(var(--num-socials), 1fr);
     padding: 16px 8px;
     gap: 0;
+    max-width: 100%;
   }
-  .social-card:not(:last-child) {
+  .social-card:not(.last-social-card) {
     border-right: 1px solid rgba(255, 255, 255, 0.05);
   }
 }
 
 @media (max-width: 576px) {
   .social-metrics-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    padding: 14px 4px;
-    gap: 0;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    padding: 16px 12px !important;
+    gap: 0 !important;
+    max-width: 100%;
+    scrollbar-width: none; /* Hide scrollbar Firefox */
   }
-  .social-card:not(:last-child) {
-    border-right: 1px solid rgba(255, 255, 255, 0.05);
+  .social-metrics-container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar Chrome/Safari */
+  }
+  .social-card {
+    flex: 0 0 95px !important;
+    min-width: 95px !important;
+  }
+  .social-card:not(.last-social-card) {
+    border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
+  }
+  .metric-count {
+    font-size: 1.15rem !important;
+  }
+  .metric-label {
+    font-size: 0.48rem !important;
+    letter-spacing: 0.5px !important;
+  }
+  .metric-handle {
+    font-size: 0.6rem !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 85px;
   }
 }
 
@@ -856,7 +859,7 @@ const activeArtist = computed(() => artistData[currentArtist.value]);
 }
 
 .social-card:hover {
-  transform: translateY(-3px);
+  /* No vertical card movement */
 }
 
 .icon-wrapper {
@@ -872,6 +875,7 @@ const activeArtist = computed(() => artistData[currentArtist.value]);
 .social-card:hover .icon-wrapper {
   opacity: 1;
   filter: drop-shadow(0 0 8px rgba(255, 42, 109, 0.6));
+  transform: scale(1.15);
 }
 
 .metric-count {

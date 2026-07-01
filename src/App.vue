@@ -105,7 +105,7 @@ onMounted(() => {
       <template v-else-if="currentPage === 'home'">
         <Hero />
         <MerchCatalog />
-        <Highlights />
+        <Highlights v-if="false" />
         <Albums />
       </template>
       <template v-else-if="currentPage === 'store'">
