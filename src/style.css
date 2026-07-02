@@ -291,12 +291,12 @@ html, body {
 
 /* 90HP Navbar & Footer logo style */
 .logo-img-90hp {
-  height: 180px;
+  height: 240px;
   width: auto;
   object-fit: contain;
   transition: var(--transition-smooth);
   filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.35));
-  transform: translateY(25px);
+  transform: translateY(28px);
 }
 
 .footer .logo-img-90hp {
@@ -306,7 +306,7 @@ html, body {
 
 @media (max-width: 768px) {
   .navbar-container .logo-img-90hp {
-    height: 120px;
+    height: 150px;
     transform: translateY(10px);
   }
   .footer .logo-img-90hp {
@@ -324,12 +324,6 @@ html, body {
   object-position: bottom center !important;
   -webkit-mask-image: none !important;
   mask-image: none !important;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%) !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  border-radius: 24px !important;
-  padding: 16px !important;
-  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.7), inset 0 0 30px rgba(255, 255, 255, 0.03) !important;
-  backdrop-filter: blur(12px) !important;
   filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.4)) !important;
   transform: translateX(0px) translateY(55px) !important;
 }
@@ -342,12 +336,6 @@ html, body {
   object-position: bottom center !important;
   -webkit-mask-image: none !important;
   mask-image: none !important;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%) !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  border-radius: 16px !important;
-  padding: 8px !important;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(255, 255, 255, 0.02) !important;
-  backdrop-filter: blur(8px) !important;
   filter: drop-shadow(0 8px 15px rgba(0, 0, 0, 0.3)) !important;
   transform: translateY(10px) !important;
   margin-bottom: 20px !important;
@@ -451,6 +439,40 @@ html, body {
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.9), inset 0 0 25px rgba(255, 255, 255, 0.05) !important;
   width: 540px !important;
   height: 540px !important;
+}
+
+.theme-90hp .hero-mobile-glow {
+  background: repeating-radial-gradient(
+    circle,
+    #1d1d20 0px,
+    #1d1d20 4px,
+    #141416 5px,
+    #141416 8px
+  ) !important;
+  border: 2px solid rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.9), inset 0 0 20px rgba(255, 255, 255, 0.05) !important;
+  border-radius: 50% !important;
+  width: 340px !important;
+  height: 340px !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  position: absolute !important;
+  z-index: 0 !important;
+}
+
+@media (max-width: 576px) {
+  .theme-90hp .hero-mobile-glow {
+    width: 300px !important;
+    height: 300px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .theme-90hp .hero-mobile-glow {
+    width: 260px !important;
+    height: 260px !important;
+  }
 }
 
 /* Hide celestial doodles */

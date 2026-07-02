@@ -12,7 +12,7 @@ const products = [
     tag: 'Best Seller',
     category: 'apparel',
     image: new URL('../assets/merch_hoodie.png', import.meta.url).href,
-    description: 'Hoodie eksklusif dengan desain Nightscape – The Anti Climax. Nyaman dipakai, cocok untuk setiap cerita yang kamu jalani.'
+    description: 'Exclusive hoodie featuring the Nightscape – The Anti Climax design. Comfortable to wear, perfect for every story you live.'
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ const products = [
     tag: 'New Release',
     category: 'music',
     image: new URL('../assets/merch_cd.png', import.meta.url).href,
-    description: 'CD Album fisik "The Anti Climax" dengan sleeve eksklusif, lirik buklet, dan tanda tangan digital YoRI.'
+    description: 'Physical CD Album "The Anti Climax" with an exclusive sleeve, lyric booklet, and digital signature from YoRI.'
   },
   {
     id: 3,
@@ -30,7 +30,7 @@ const products = [
     tag: 'Limited',
     category: 'apparel',
     image: new URL('../assets/merch_tshirt.png', import.meta.url).href,
-    description: 'Kaos premium berbahan Cotton Combed 24s dengan cetakan sablon grafis YoRI beresolusi tinggi.'
+    description: 'Premium T-shirt made of Cotton Combed 24s with high-resolution YoRI graphic screen print.'
   },
   {
     id: 4,
@@ -39,7 +39,7 @@ const products = [
     tag: 'Accessories',
     category: 'accessories',
     image: new URL('../assets/merch.png', import.meta.url).href,
-    description: 'Official sticker pack berisi 8 stiker vinyl tahan air dengan berbagai ilustrasi ikonik YoRI.'
+    description: 'Official sticker pack containing 8 waterproof vinyl stickers with various iconic YoRI illustrations.'
   },
   {
     id: 5,
@@ -48,7 +48,7 @@ const products = [
     tag: 'Accessories',
     category: 'accessories',
     image: new URL('../assets/merch.png', import.meta.url).href,
-    description: 'Gantungan kunci akrilik dua sisi berkualitas tinggi yang menampilkan ilustrasi maskot YoRI.'
+    description: 'High-quality double-sided acrylic keychain featuring YoRI\'s mascot illustration.'
   },
   {
     id: 6,
@@ -57,7 +57,7 @@ const products = [
     tag: 'Limited',
     category: 'music',
     image: new URL('../assets/merch_cd.png', import.meta.url).href,
-    description: 'Piringan hitam Vinyl 12" premium edisi terbatas dengan warna splatter pink eksklusif.'
+    description: 'Premium 12" Vinyl record, limited edition with exclusive pink splatter color.'
   },
   {
     id: 7,
@@ -66,7 +66,7 @@ const products = [
     tag: 'New Release',
     category: 'apparel',
     image: new URL('../assets/merch_hoodie.png', import.meta.url).href,
-    description: 'Beanie hat rajutan premium yang tebal dan hangat dengan emblem bordir logo YoRI.'
+    description: 'Premium knitted beanie hat, thick and warm, featuring an embroidered YoRI logo patch.'
   },
   {
     id: 8,
@@ -75,7 +75,7 @@ const products = [
     tag: 'Exclusive',
     category: 'bundles',
     image: new URL('../assets/merch.png', import.meta.url).href,
-    description: 'Set poster eksklusif bertandatangan asli YoRI berisi 3 poster dengan desain konseptual album.'
+    description: 'Exclusive poster set signed by YoRI, containing 3 posters with conceptual album designs.'
   }
 ];
 

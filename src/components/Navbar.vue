@@ -507,8 +507,8 @@ onUnmounted(() => {
 }
 
 .logo-ri.logo-img-90hp {
-  height: 180px;
-  transform: translateY(20px);
+  height: 240px;
+  transform: translateY(28px);
 }
 
 .logo-ri.logo-img-burakku {
@@ -525,7 +525,7 @@ onUnmounted(() => {
     height: 22px !important;
   }
   .logo-ri.logo-img-90hp {
-    height: 50px !important;
+    height: 80px !important;
     transform: none !important;
   }
   .logo-ri.logo-img-burakku {
@@ -1084,8 +1084,8 @@ onUnmounted(() => {
 }
 
 .accordion-item-logo-wrap {
-  width: 48px;
-  height: 32px;
+  width: 58px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1115,7 +1115,7 @@ onUnmounted(() => {
 }
 
 .accordion-logo-90hp {
-  height: 24px;
+  height: 38px;
   width: auto;
 }
 
@@ -1249,7 +1249,7 @@ onUnmounted(() => {
   }
 
   .mobile-home-logo-90hp {
-    height: 24px;
+    height: 38px;
     width: auto;
   }
 

@@ -6,9 +6,9 @@ import { artistData } from '../artistData.js';
 
 // ===== MERCH (COMBINED) =====
 const allProducts = computed(() => {
-  const yoriProducts = artistData.yori.products.map(p => ({ ...p, creator: 'YoRI' }));
+  // const yoriProducts = artistData.yori.products.map(p => ({ ...p, creator: 'YoRI' }));
   const hpProducts = artistData['90hp'].products.map(p => ({ ...p, creator: '90 Horsepower' }));
-  return [...yoriProducts, ...hpProducts];
+  return [...hpProducts];
 });
 
 const activeCategory = ref('all');
@@ -138,7 +138,7 @@ We work with artists who believe melody can be loud, vulnerability can be powerf
       <div class="container">
         <div class="section-header-row">
           <div class="section-tag">OUR ARTISTS</div>
-          <h2 class="section-title-burakku">Artis di Bawah Naungan<br><span>Burakku</span></h2>
+          <h2 class="section-title-burakku">Artists Under<br><span>Burakku</span></h2>
         </div>
 
         <div class="artists-grid">
@@ -261,7 +261,7 @@ We work with artists who believe melody can be loud, vulnerability can be powerf
         <div class="section-header-row">
           <div class="section-tag">EXCLUSIVE MERCHANDISE</div>
           <h2 class="section-title-burakku">Merch Catalog<br><span>Burakku Store</span></h2>
-          <p class="section-desc">Temukan merchandise eksklusif dari seluruh artis Burakku dalam satu katalog.</p>
+          <p class="section-desc">Discover exclusive merchandise from all Burakku artists in one catalog.</p>
         </div>
 
         <!-- Filter Buttons -->
@@ -1486,7 +1486,7 @@ We work with artists who believe melody can be loud, vulnerability can be powerf
 
 .burakku-product-name {
   font-family: var(--font-heading);
-  font-size: 0.92rem;
+  font-size: 1.15rem;
   font-weight: 700;
   color: var(--text-primary);
   margin: 0 0 4px 0;
@@ -1506,7 +1506,7 @@ We work with artists who believe melody can be loud, vulnerability can be powerf
 }
 
 @media (max-width: 480px) {
-  .burakku-product-name { font-size: 0.78rem; }
+  .burakku-product-name { font-size: 0.92rem; }
   .burakku-product-price { font-size: 0.82rem; }
   .burakku-product-info { padding: 10px 12px 12px; }
 }

@@ -38,9 +38,9 @@ const activeArtist = computed(() => artistData[currentArtist.value]);
               <ellipse cx="250" cy="250" rx="180" ry="50" stroke="rgba(255, 42, 109, 0.15)" stroke-width="1" transform="rotate(-10 250 250)" />
             </svg>
             <!-- Sparks / Stars -->
-            <svg class="mobile-spark spark-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <!-- <svg class="mobile-spark spark-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <path d="M12 2L15 9H22L17 14L19 21L12 17L5 21L7 14L2 9H9L12 2Z" />
-            </svg>
+            </svg> -->
             <svg class="mobile-spark spark-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <path d="M12 2L15 9H22L17 14L19 21L12 17L5 21L7 14L2 9H9L12 2Z" />
             </svg>

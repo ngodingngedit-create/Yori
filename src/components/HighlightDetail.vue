@@ -56,9 +56,9 @@ const getTint = (index) => tintColors[index % tintColors.length];
 
 // Meta fields
 const metaFields = computed(() => [
-  { icon: 'calendar', label: 'TAHUN',    value: highlight.value.year },
-  { icon: 'user',     label: 'PERAN',    value: highlight.value.role.replace(/^"|"$/g, '').replace(/^as '|'$/g, '') },
-  { icon: 'tag',      label: 'KATEGORI', value: highlight.value.category },
+  { icon: 'calendar', label: 'YEAR',     value: highlight.value.year },
+  { icon: 'user',     label: 'ROLE',     value: highlight.value.role.replace(/^"|"$/g, '').replace(/^as '|'$/g, '') },
+  { icon: 'tag',      label: 'CATEGORY', value: highlight.value.category },
   { icon: 'link',     label: 'PLATFORM', value: highlight.value.platform }
 ]);
 </script>
