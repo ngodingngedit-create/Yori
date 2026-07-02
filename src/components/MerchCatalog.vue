@@ -155,10 +155,10 @@ const handleDecrease = (product) => {
             <!-- Creator Info Section -->
             <div class="product-creator-row">
               <div class="creator-circle-avatar" :class="currentArtist === 'yori' ? 'avatar-yori' : 'avatar-90hp'">
-                <img :src="currentArtist === 'yori' ? '/logo/logo.png' : '/90horsepower/logo90.png'" alt="Logo" class="creator-avatar-img" />
+                <img :src="currentArtist === 'yori' ? '/logo/YoriLogo.png' : '/90horsepower/logo90.png'" alt="Logo" class="creator-avatar-img" />
               </div>
               <div class="creator-meta">
-                <span class="creator-label">Disediakan oleh</span>
+                <span class="creator-label">Provided by</span>
                 <span class="creator-name-bold">{{ currentArtist === 'yori' ? 'YoRI' : '90 Horsepower' }}</span>
               </div>
             </div>

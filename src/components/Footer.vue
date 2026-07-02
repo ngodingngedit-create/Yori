@@ -15,7 +15,7 @@ const activeArtist = computed(() => artistData[currentArtist.value]);
         <!-- Logo -->
         <a href="#" @click.prevent="navigateTo('home')" class="logo">
           <img v-if="currentPage === 'burakku'" src="/logo/Burakku Logo black (1).png" class="logo-img logo-img-burakku" alt="Burakku Logo" />
-          <img v-else-if="currentArtist === 'yori'" src="/logo/logo.png" class="logo-img" alt="YoRI Logo" />
+          <img v-else-if="currentArtist === 'yori'" src="/logo/YoriLogo.png" class="logo-img" alt="YoRI Logo" />
           <!-- 90 HORSEPOWER LOGO -->
           <img v-else src="/90horsepower/logo90.png" class="logo-img logo-img-90hp" alt="Ninety Horsepower Logo" />
         </a>
@@ -40,6 +40,11 @@ const activeArtist = computed(() => artistData[currentArtist.value]);
               <svg v-else-if="key === 'youtube'" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
                 <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+              </svg>
+
+              <!-- X / Twitter -->
+              <svg v-else-if="key === 'x'" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
               </svg>
 
               <!-- Spotify -->
@@ -95,7 +100,7 @@ const activeArtist = computed(() => artistData[currentArtist.value]);
 }
 
 .logo-img {
-  height: 80px;
+  height: 48px;
   width: auto;
   object-fit: contain;
   display: block;
@@ -114,7 +119,7 @@ const activeArtist = computed(() => artistData[currentArtist.value]);
 
 @media (max-width: 768px) {
   .logo-img {
-    height: 100px;
+    height: 36px;
   }
   .logo-img.logo-img-90hp {
     height: 240px;

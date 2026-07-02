@@ -19,13 +19,18 @@ const activeArtist = computed(() => artistData[currentArtist.value]);
         <div class="hero-text-column">
 
           <!-- Title (desktop only) -->
-          <h1 class="hero-title">
-            <span class="yo">{{ activeArtist.titleYo }}</span><span class="ri">{{ activeArtist.titleRi }}</span>
+          <h1 class="hero-title" :class="{ 'has-logo': currentArtist === 'yori' }">
+            <template v-if="currentArtist === 'yori'">
+              <img src="/logo/YoriLogo.png" class="hero-logo-title" alt="YoRI Logo" />
+            </template>
+            <template v-else>
+              <span class="yo">{{ activeArtist.titleYo }}</span><span class="ri">{{ activeArtist.titleRi }}</span>
+            </template>
           </h1>
 
           <!-- Mobile portrait/logo — replaces the title on small screens -->
           <!-- 90 HORSEPOWER MOBILE PORTRAIT & LOGO -->
-          <div class="hero-mobile-portrait">
+          <div class="hero-mobile-portrait" :class="{ 'is-90hp': currentArtist === '90hp' }">
             <div class="hero-mobile-glow"></div>
             <!-- Double orbit rings -->
             <svg class="hero-mobile-ring" viewBox="0 0 500 500" fill="none">
@@ -42,7 +47,7 @@ const activeArtist = computed(() => artistData[currentArtist.value]);
             <span class="mobile-cross mcross-1">+</span>
             <span class="mobile-cross mcross-2">+</span>
 
-            <img :src="activeArtist.heroImage" :alt="activeArtist.name + ' Portrait'" class="hero-mobile-img" :class="{ 'is-logo': currentArtist === '90hp' }" />
+            <img :src="activeArtist.heroImage" :alt="activeArtist.name + ' Portrait'" class="hero-mobile-img" :class="{ 'is-logo': currentArtist === '90hp', 'yori-mobile-img': currentArtist === 'yori' }" />
             <div class="hero-mobile-signature">{{ activeArtist.signature }}</div>
           </div>
 
@@ -74,7 +79,7 @@ const activeArtist = computed(() => artistData[currentArtist.value]);
 
         <!-- Right side: Portrait with planet rings and doodles -->
         <div class="hero-image-column">
-          <div class="hero-image-area">
+          <div class="hero-image-area" :class="{ 'yori-image-area': currentArtist === 'yori' }">
             <!-- Planet Background elements -->
             <div class="planet-container">
               <!-- Dark abstract planet circle -->
@@ -100,7 +105,7 @@ const activeArtist = computed(() => artistData[currentArtist.value]);
 
             <!-- Centered portrait/logo image -->
             <!-- 90 HORSEPOWER HERO LOGO IMAGE -->
-            <img :src="activeArtist.heroImage" :alt="activeArtist.name + ' Portrait'" class="hero-portrait-img" :class="{ 'is-logo': currentArtist === '90hp' }" />
+            <img :src="activeArtist.heroImage" :alt="activeArtist.name + ' Portrait'" class="hero-portrait-img" :class="{ 'is-logo': currentArtist === '90hp', 'yori-portrait': currentArtist === 'yori' }" />
 
             <!-- Handwritten signature overlay on the right -->
             <div class="handdrawn-signature">{{ activeArtist.signature }}</div>
@@ -130,13 +135,15 @@ const activeArtist = computed(() => artistData[currentArtist.value]);
                   <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
                   <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
                 </svg>
+                <!-- X / Twitter -->
+                <svg v-else-if="key === 'x'" viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
                 <!-- Spotify -->
                 <svg v-else-if="key === 'spotify'" viewBox="0 0 24 24" width="26" height="26" fill="currentColor">
                   <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.586 14.424c-.18.295-.565.387-.86.207-2.377-1.454-5.37-1.783-8.892-.982-.336.076-.67-.135-.747-.472-.077-.336.136-.67.472-.747 3.844-.877 7.14-.5 9.82 1.14.296.18.387.563.207.86zm1.226-2.723c-.227.367-.707.487-1.074.26-2.72-1.672-6.87-2.157-10.078-1.182-.413.125-.85-.107-.975-.52-.125-.413.107-.85.52-.975 3.665-1.112 8.232-.572 11.347 1.343.367.227.487.708.26 1.074zm.106-2.833C14.444 8.766 8.7 8.577 5.372 9.587c-.53.16-1.09-.142-1.25-.672-.16-.53.142-1.09.672-1.25 3.818-1.16 10.15-.94 14.164 1.442.477.285.632.9.347 1.378-.285.477-.9.632-1.378.347z"/>
                 </svg>
               </div>
-              <div class="metric-count">{{ social.count }}</div>
-              <div class="metric-label">{{ key === 'youtube' ? 'SUBSCRIBERS' : (key === 'spotify' ? 'SPOTIFY' : 'FOLLOWERS') }}</div>
               <div class="metric-handle">{{ social.handle }}</div>
             </a>
             
@@ -268,17 +275,54 @@ const activeArtist = computed(() => artistData[currentArtist.value]);
   margin-bottom: 10px;
 }
 
+.hero-title.has-logo {
+  font-size: 0;
+  line-height: 0;
+  letter-spacing: 0;
+}
+
+.hero-logo-title {
+  max-width: 180px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 15px;
+  filter: drop-shadow(0 0 15px rgba(255, 42, 109, 0.25));
+}
+
 @media (max-width: 1200px) {
   .hero-title {
     font-size: 6rem;
     letter-spacing: -3px;
   }
+  .hero-logo-title {
+    max-width: 155px;
+  }
 }
 
-/* Hide the text title on mobile — replaced by portrait image */
+@media (max-width: 992px) {
+  .hero-logo-title {
+    max-width: 140px;
+    margin: 0 auto 15px auto;
+  }
+}
+
+/* Hide the text title on mobile — replaced by portrait image. For logo title, adjust layout */
 @media (max-width: 768px) {
-  .hero-title {
+  .hero-title:not(.has-logo) {
     display: none;
+  }
+  .hero-title.has-logo {
+    display: none !important;
+  }
+  .hero-logo-title {
+    display: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-logo-title {
+    max-width: 90px;
   }
 }
 
@@ -321,13 +365,15 @@ const activeArtist = computed(() => artistData[currentArtist.value]);
 
 @media (max-width: 576px) {
   .hero-tagline {
-    font-size: 2.1rem;
+    font-size: 1.8rem;
+    white-space: nowrap;
   }
 }
 
 @media (max-width: 380px) {
   .hero-tagline {
-    font-size: 1.8rem;
+    font-size: 1.45rem;
+    white-space: nowrap;
   }
 }
 
@@ -476,7 +522,7 @@ const activeArtist = computed(() => artistData[currentArtist.value]);
     height: 340px;
     justify-content: center;
     align-items: flex-end;
-    margin-bottom: 20px;
+    margin-bottom: 5px !important;
     overflow: visible;
   }
 }
@@ -484,14 +530,14 @@ const activeArtist = computed(() => artistData[currentArtist.value]);
 @media (max-width: 576px) {
   .hero-mobile-portrait {
     height: 300px;
-    margin-bottom: 16px;
+    margin-bottom: 4px !important;
   }
 }
 
 @media (max-width: 380px) {
   .hero-mobile-portrait {
     height: 260px;
-    margin-bottom: 12px;
+    margin-bottom: 2px !important;
   }
 }
 
@@ -536,11 +582,49 @@ const activeArtist = computed(() => artistData[currentArtist.value]);
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 98%);
 }
 
+.hero-mobile-img.is-logo {
+  width: auto !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  object-fit: contain !important;
+  object-position: bottom center !important;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.4)) !important;
+  transform: translateY(40px) !important;
+  margin-bottom: 0px !important;
+  padding: 0 !important;
+}
+
+/* Make mobile portrait container for 90HP significantly taller */
+.hero-mobile-portrait.is-90hp {
+  height: 480px !important;
+  margin-bottom: 5px !important;
+}
+
+@media (max-width: 576px) {
+  .hero-mobile-portrait.is-90hp {
+    height: 430px !important;
+    margin-bottom: 4px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero-mobile-portrait.is-90hp {
+    height: 380px !important;
+    margin-bottom: 2px !important;
+  }
+}
+
 /* Handwritten signature overlay */
 .hero-mobile-signature {
   position: absolute;
-  bottom: 14%;
-  right: 8%;
+  bottom: 20%;
+  right: 18%;
   font-family: var(--font-tagline);
   font-size: 2.4rem;
   color: var(--accent-cyan);
@@ -553,14 +637,14 @@ const activeArtist = computed(() => artistData[currentArtist.value]);
 @media (max-width: 576px) {
   .hero-mobile-signature {
     font-size: 2rem;
-    right: 6%;
+    right: 15%;
   }
 }
 
 @media (max-width: 380px) {
   .hero-mobile-signature {
     font-size: 1.7rem;
-    bottom: 10%;
+    bottom: 16%;
   }
 }
 
@@ -731,11 +815,23 @@ const activeArtist = computed(() => artistData[currentArtist.value]);
   pointer-events: none;
 }
 
+.hero-portrait-img.is-logo {
+  width: 92% !important;
+  height: auto !important;
+  max-width: none !important;
+  object-fit: contain !important;
+  object-position: bottom center !important;
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 98%) !important;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 98%) !important;
+  filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.5)) !important;
+  transform: translateX(-15px) translateY(35px) !important;
+}
+
 /* Handwritten signature script overlay */
 .handdrawn-signature {
   position: absolute;
-  bottom: 22%;
-  right: -5%;
+  bottom: 30%;
+  right: 12%;
   font-family: var(--font-tagline);
   font-size: 3.5rem;
   color: var(--accent-cyan);
@@ -748,8 +844,8 @@ const activeArtist = computed(() => artistData[currentArtist.value]);
 @media (max-width: 992px) {
   .handdrawn-signature {
     font-size: 2.8rem;
-    bottom: 15%;
-    right: -2%;
+    bottom: 22%;
+    right: 10%;
   }
 }
 
@@ -827,25 +923,18 @@ const activeArtist = computed(() => artistData[currentArtist.value]);
     display: none; /* Hide scrollbar Chrome/Safari */
   }
   .social-card {
-    flex: 0 0 95px !important;
-    min-width: 95px !important;
+    flex: 0 0 115px !important;
+    min-width: 115px !important;
   }
   .social-card:not(.last-social-card) {
     border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
   }
-  .metric-count {
-    font-size: 1.15rem !important;
-  }
-  .metric-label {
-    font-size: 0.48rem !important;
-    letter-spacing: 0.5px !important;
-  }
   .metric-handle {
-    font-size: 0.6rem !important;
+    font-size: 0.8rem !important;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 85px;
+    max-width: 110px;
   }
 }
 
@@ -858,18 +947,21 @@ const activeArtist = computed(() => artistData[currentArtist.value]);
   transition: var(--transition-smooth);
 }
 
-.social-card:hover {
-  /* No vertical card movement */
-}
+
 
 .icon-wrapper {
   color: var(--accent-cyan);
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   opacity: 0.85;
   transition: var(--transition-smooth);
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.icon-wrapper svg {
+  width: 38px !important;
+  height: 38px !important;
 }
 
 .social-card:hover .icon-wrapper {
@@ -878,67 +970,35 @@ const activeArtist = computed(() => artistData[currentArtist.value]);
   transform: scale(1.15);
 }
 
-.metric-count {
-  font-family: var(--font-heading);
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: var(--accent-cyan);
-  line-height: 1.1;
-  margin-bottom: 2px;
-  text-shadow: 0 0 15px rgba(255, 42, 109, 0.2);
+.metric-handle {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-secondary);
   transition: var(--transition-smooth);
 }
 
-.social-card:hover .metric-count {
-  text-shadow: 0 0 20px rgba(255, 42, 109, 0.5);
-}
-
-.metric-label {
-  font-size: 0.6rem;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  color: var(--text-muted);
-  margin-bottom: 4px;
-}
-
-.metric-handle {
-  font-size: 0.78rem;
-  font-weight: 500;
-  color: var(--text-secondary);
+.social-card:hover .metric-handle {
+  color: var(--accent-cyan);
+  text-shadow: 0 0 10px rgba(255, 42, 109, 0.4);
 }
 
 @media (max-width: 768px) {
   .icon-wrapper svg {
-    width: 20px;
-    height: 20px;
-  }
-  .metric-count {
-    font-size: 1.25rem;
-  }
-  .metric-label {
-    font-size: 0.5rem;
-    letter-spacing: 0.8px;
-    margin-bottom: 2px;
+    width: 28px !important;
+    height: 28px !important;
   }
   .metric-handle {
-    font-size: 0.65rem;
+    font-size: 0.9rem !important;
   }
 }
 
 @media (max-width: 480px) {
   .icon-wrapper svg {
-    width: 18px;
-    height: 18px;
-  }
-  .metric-count {
-    font-size: 1.15rem;
-  }
-  .metric-label {
-    font-size: 0.45rem;
-    letter-spacing: 0.5px;
+    width: 22px !important;
+    height: 22px !important;
   }
   .metric-handle {
-    font-size: 0.58rem;
+    font-size: 0.75rem !important;
   }
 }
 
@@ -952,5 +1012,19 @@ const activeArtist = computed(() => artistData[currentArtist.value]);
   .social-divider {
     display: none;
   }
+}
+
+/* Yori Specific Hero Image and Area Adjustments */
+.yori-image-area {
+  transform: translateY(60px) scale(1.36) !important;
+}
+
+.yori-portrait {
+  filter: drop-shadow(0 -10px 40px rgba(255, 42, 109, 0.25));
+}
+
+.yori-mobile-img {
+  transform: translateY(22px) scale(1.45) !important;
+  transform-origin: bottom center;
 }
 </style>

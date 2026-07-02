@@ -4,12 +4,15 @@ export const artistData = {
     titleYo: 'Yo',
     titleRi: 'RI',
     signature: 'YoRI',
-    tagline: 'I write, I feel, I sing.',
-    bio: 'YoRI (Aurel Mayori) memulai karier di dunia hiburan sejak usia 9 tahun sebagai aktris. Perjalanan panjangnya dari mantan member idol group hingga solo artist membentuk identitasnya sebagai penulis lagu dengan lirik puitis, penuh emosi, dan selalu bereksplorasi di berbagai genre musik.',
-    heroImage: '/home/home.png',
+    tagline: 'Experimenting With Imagination',
+    bio: 'YoRI (Aurel Mayori) began her career in the entertainment industry at the age of 9 as an actress. Her long journey from former idol group member to solo artist has forged her identity as a songwriter, characterized by poetic, emotionally charged lyrics and a continuous exploration of diverse music genres.',
+    heroImage: '/home/yori.png',
     socials: {
-      youtube: { count: '181K', handle: '@ItsYoRI', url: 'https://www.youtube.com/@ItsYoRI' },
-      spotify: { count: 'LISTEN', handle: 'YoRI', url: 'https://open.spotify.com/artist/7KWwccszhCF3f6pYeVWMTD?si=kbw9rHLWQveCzeIBIsaoaQ' }
+      instagram: { count: '238K', handle: '@yoribeneran', url: 'https://www.instagram.com/yoribeneran' },
+      tiktok: { count: '535K', handle: '@yoribeneran', url: 'https://www.tiktok.com/@yoribeneran' },
+      x: { count: '46.7K', handle: '@yoribeneran', url: 'https://x.com/yoribeneran' },
+      youtube: { count: '181K', handle: '@itsyori', url: 'https://youtube.com/@itsyori' },
+      spotify: { count: 'LISTEN', handle: 'YoRI', url: 'https://open.spotify.com/artist/7KWwccszhCF3f6pYeVWMTD?si=oWvvv77KS7iSqTv-mpQMiQ' }
     },
     trackInfo: {
       title: 'Ninety Horsepower',
@@ -95,7 +98,7 @@ export const artistData = {
         mediaType: 'image',
         category: 'Film',
         platform: 'Netflix',
-        description: 'Membawakan peran Dina dalam film orisinal Netflix bertajuk "Lupa Daratan" — sebuah kisah tentang identitas, kerinduan, dan pencarian jati diri di tengah dua budaya yang berbeda.',
+        description: 'Played the role of Dina in the Netflix original film "Lupa Daratan" — a story about identity, longing, and the search for self between two different cultures.',
         icon: 'film'
       },
       {
@@ -108,7 +111,7 @@ export const artistData = {
         mediaType: 'video',
         category: 'Film',
         platform: 'Bioskop',
-        description: 'Berperan sebagai Jennie dalam film komedi drama "Kaka Boss" — karakter yang penuh semangat, tegar, dan menghadirkan nuansa segar di tengah dinamika persahabatan dan karier.',
+        description: 'Starred as Jennie in the comedy-drama film "Kaka Boss" — a spirited, resilient character bringing fresh energy into friendship and career dynamics.',
         icon: 'video'
       },
       {
@@ -121,7 +124,7 @@ export const artistData = {
         mediaType: 'image',
         category: 'Gaming',
         platform: 'PC, Mobile',
-        description: 'Bergabung sebagai voice actress untuk karakter di game Lokapala, membawa karakter dengan suara yang penuh semangat dan emosi.',
+        description: 'Joined as a voice actress for a character in the game Lokapala, bringing the character to life with passionate and emotional vocals.',
         icon: 'gamepad'
       },
       {
@@ -134,7 +137,7 @@ export const artistData = {
         mediaType: 'image',
         category: 'Series',
         platform: 'Streaming',
-        description: 'Tampil sebagai salah satu karakter utama dalam serial superhero "Bardion" — sebuah kisah fiksi ilmiah yang memadukan aksi, emosi, dan identitas heroik.',
+        description: 'Appeared as one of the main characters in the superhero series "Bardion" — a sci-fi tale blending action, emotion, and heroic identity.',
         icon: 'tv'
       },
       {
@@ -147,7 +150,7 @@ export const artistData = {
         mediaType: 'image',
         category: 'Music',
         platform: 'Streaming, Live',
-        description: 'Album perdana bertajuk "21 Grams — The Anti Climax Act I" hadir sebagai pernyataan artistik yang jujur, mengeksplorasi tema kehilangan, pertumbuhan, dan penerimaan.',
+        description: 'Debut album "21 Grams — The Anti Climax Act I" serves as an honest artistic statement, exploring themes of loss, growth, and acceptance.',
         icon: 'music'
       },
       {
@@ -160,7 +163,7 @@ export const artistData = {
         mediaType: 'image',
         category: 'Music',
         platform: 'Live Event',
-        description: 'Sesi akustik intim yang menghadirkan YoRi dalam format stripped-down — menyajikan lagu-lagu dengan kedalaman emosi dan keintiman yang jarang terasa di panggung besar.',
+        description: 'An intimate, stripped-down acoustic session featuring YoRi — delivering songs with emotional depth and intimacy rarely felt on big stages.',
         icon: 'music'
       },
       {
@@ -173,7 +176,7 @@ export const artistData = {
         mediaType: 'image',
         category: 'Festival',
         platform: 'Jakarta',
-        description: 'Penampilan perdana di panggung utama Pestapora — salah satu festival musik terbesar Indonesia — yang memperkenalkan YoRi kepada ribuan penonton baru.',
+        description: 'Debut performance on the main stage of Pestapora — one of Indonesia\'s largest music festivals — introducing YoRi to thousands of new listeners.',
         icon: 'music'
       }
     ],
@@ -338,14 +341,14 @@ export const artistData = {
     titleYo: '90',
     titleRi: 'HP',
     signature: '90HP',
-    tagline: 'Cerita jujur dalam distorsi gitar.',
-    bio: 'Ninety Horsepower (90HP) adalah grup musik indie rock asal Jakarta yang terbentuk sejak September 2013 oleh sekumpulan mahasiswa Universitas Indonesia. Menggabungkan lirik emosional, energi garage rock, dan estetika pop alternatif.',
+    tagline: 'Songs for Ordinary Fighters',
+    bio: 'Ninety Horsepower (90HP) is an Indonesian Alternative Power Pop band blending energetic guitars, memorable melodies, and honest stories about ordinary people who choose to keep moving. 90HP creates songs that embrace resilience, small victories, and hope without pretending life is easy.',
     heroImage: '/home/90hp_hero.png',
     socials: {
-      instagram: { count: '3.5K', handle: '@90horsepower', url: 'https://www.instagram.com/90horsepower' },
-      tiktok: { count: '1.8K', handle: '@90horsepower', url: 'https://www.tiktok.com/@90horsepower' },
-      youtube: { count: '2.6K', handle: '@90HorsePower', url: 'https://www.youtube.com/@90HorsePower' },
-      spotify: { count: 'LISTEN', handle: '90horsepower', url: 'https://open.spotify.com/intl-id/artist/0Dgmxi8oh7NaL332kwpo3a?si=RGDOT7jOSU6hedoqpoE5ZQ' }
+      instagram: { count: '', handle: '@90horsepower', url: 'https://www.instagram.com/90horsepower' },
+      tiktok: { count: '', handle: '@90horsepower', url: 'https://www.tiktok.com/@90horsepower' },
+      youtube: { count: '', handle: '@90HorsePower', url: 'https://www.youtube.com/@90HorsePower' },
+      spotify: { count: '', handle: '90horsepower', url: 'https://open.spotify.com/artist/0Dgmxi8oh7NaL332kwpo3a?si=D4EeHyZ_TeaHptVC3nyQ9w' }
     },
     trackInfo: {
       title: 'Gusar',
@@ -364,7 +367,7 @@ export const artistData = {
         image: '/90horsepower/cd_pagi_pasti_kembali.png',
         stockInfo: 'Ready Stock 30pcs',
         location: 'Jakarta',
-        description: 'CD Album fisik "Pagi Pasti Kembali" karya Ninety Horsepower. Berisi trek alternatif dengan distorsi garage rock yang emosional.'
+        description: 'Physical CD Album "Pagi Pasti Kembali" by Ninety Horsepower. Features alternative tracks with emotional garage rock distortion.'
       },
       {
         id: 102,
@@ -374,10 +377,10 @@ export const artistData = {
         category: 'apparel',
         image: '/90horsepower/tshirt_gusar_kids.png',
         hoverImage: '/90horsepower/tshirt_gusar_models.png',
-        stockInfo: 'belum termasuk ongkir.',
-        poPeriod: 'Periode Pre-Order > 1 July sd 14 July',
+        stockInfo: 'shipping not included.',
+        poPeriod: 'Pre-Order Period > July 1 to July 14',
         location: 'Jakarta',
-        description: 'T-shirt eksklusif edisi terbatas singel GUSAR dari Ninety Horsepower. Terbuat dari bahan Cotton Combed berkualitas tinggi dengan sablon grafis retro.'
+        description: 'Exclusive limited edition T-shirt for Ninety Horsepower\'s single GUSAR. Made of high-quality Cotton Combed with retro graphic screen print.'
       }
     ],
     highlights: [
@@ -391,7 +394,7 @@ export const artistData = {
         mediaType: 'image',
         category: 'Music',
         platform: 'Spotify, Apple, Instagram',
-        description: 'Single teranyar "Gusar" dirilis resmi pada November 2025. Sebuah karya alternatif-indie kontemplatif yang mengeksplorasi penerimaan diri dan keberanian untuk berserah tanpa rasa kalah.',
+        description: 'The latest single "Gusar" was officially released in November 2025. A contemplative alternative-indie track exploring self-acceptance and the courage to surrender without defeat.',
         icon: 'music'
       },
       {
@@ -404,7 +407,7 @@ export const artistData = {
         mediaType: 'image',
         category: 'Music Video',
         platform: 'YouTube, Instagram',
-        description: 'Video musik resmi untuk "Betmen" dirilis dengan visual bernuansa sinematik gelap dan puitis, merepresentasikan metafora hubungan yang penuh teka-teki dan kehilangan arah.',
+        description: 'The official music video for "Betmen" was released with dark cinematic and poetic visuals, representing a metaphor for a puzzling relationship losing direction.',
         icon: 'video'
       },
       {
@@ -417,7 +420,7 @@ export const artistData = {
         mediaType: 'image',
         category: 'Music Release',
         platform: 'Vinyl, Spotify, Instagram',
-        description: 'Perilisan fisik piringan hitam (vinyl) dan kaset pita untuk trilogi EP "Re: Sign - Gret - Try" yang memadukan tiga fase emosi band dalam distorsi gitar garasi yang khas.',
+        description: 'Physical vinyl and cassette release for the EP trilogy "Re: Sign - Gret - Try", combining three phases of the band\'s emotions in signature garage guitar distortion.',
         icon: 'music'
       },
       {
@@ -430,7 +433,7 @@ export const artistData = {
         mediaType: 'image',
         category: 'Live Concert',
         platform: 'Jakarta, Instagram',
-        description: 'Aksi panggung Ninety Horsepower di Joyland Festival 2024, membawakan setlist penuh distorsi dan merayakan kembalinya mereka ke panggung festival besar.',
+        description: 'Ninety Horsepower\'s stage performance at Joyland Festival 2024, playing a distortion-heavy setlist and celebrating their return to big festival stages.',
         icon: 'music'
       },
       {
@@ -443,7 +446,7 @@ export const artistData = {
         mediaType: 'image',
         category: 'Anniversary',
         platform: 'Jakarta, Instagram',
-        description: 'Perayaan perjalanan satu dekade Ninety Horsepower bersama komunitas dan pendengar setia lewat pertunjukan intim dan sesi dengar kisah di balik karya-karya mereka.',
+        description: 'A celebration of Ninety Horsepower\'s one-decade journey with their community and loyal listeners through an intimate show and story-sharing sessions.',
         icon: 'tv'
       },
       {
@@ -456,7 +459,7 @@ export const artistData = {
         mediaType: 'image',
         category: 'Live Session',
         platform: 'YouTube, Instagram',
-        description: 'Sesi live recording intim dari Burakku Studio menyajikan aransemen akustik mentah dari lagu-lagu populer Ninety Horsepower dengan pencahayaan hangat dan kualitas audio murni.',
+        description: 'An intimate live recording session from Burakku Studio featuring raw acoustic arrangements of popular Ninety Horsepower songs with warm lighting and pure audio quality.',
         icon: 'gamepad'
       }
     ],

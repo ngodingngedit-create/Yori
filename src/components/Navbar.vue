@@ -66,7 +66,7 @@ onUnmounted(() => {
       <!-- Logo Wordmark -->
       <a href="#" @click.prevent="currentPage === 'burakku' ? handleNav('burakku', '#burakku-hero') : handleNav('home')" class="logo" :class="{ 'hidden-on-menu': isMenuOpen }">
         <img v-if="currentPage === 'burakku'" src="/logo/Burakku Logo black (1).png" class="logo-ri logo-img-burakku" alt="Burakku Logo">
-        <img v-else-if="currentArtist === 'yori'" src="/logo/logo.png" class="logo-ri" alt="YoRI Logo">
+        <img v-else-if="currentArtist === 'yori'" src="/logo/YoriLogo.png" class="logo-ri" alt="YoRI Logo">
         <!-- 90 HORSEPOWER LOGO -->
         <img v-else src="/90horsepower/logo90.png" class="logo-ri logo-img-90hp" alt="Ninety Horsepower Logo">
       </a>
@@ -106,7 +106,7 @@ onUnmounted(() => {
           <div class="nav-dropdown-menu artist-accordion-menu">
             <a href="#" @click.prevent="selectArtist('yori')" class="dropdown-item artist-dropdown-item" :class="{ 'active': currentArtist === 'yori' && currentPage !== 'burakku' }">
               <div class="artist-item-logo-wrap">
-                <img src="/logo/logo.png" alt="YoRI" class="artist-item-logo artist-item-logo-yori" />
+                <img src="/logo/YoriLogo.png" alt="YoRI" class="artist-item-logo artist-item-logo-yori" />
               </div>
               <div class="artist-item-info">
                 <span class="artist-item-name">YoRI</span>
@@ -279,7 +279,7 @@ onUnmounted(() => {
               :class="{ 'active': currentArtist === 'yori' && currentPage !== 'burakku' }"
             >
               <div class="accordion-item-logo-wrap">
-                <img src="/logo/logo.png" alt="YoRI" class="accordion-item-logo accordion-logo-yori" />
+                <img src="/logo/YoriLogo.png" alt="YoRI" class="accordion-item-logo accordion-logo-yori" />
               </div>
               <div class="accordion-item-info">
                 <span class="accordion-item-name">YoRI</span>
@@ -347,7 +347,7 @@ onUnmounted(() => {
       <template v-else>
         <img 
           v-if="currentArtist === 'yori'" 
-          src="/logo/logo.png" 
+          src="/logo/YoriLogo.png" 
           class="mobile-home-logo mobile-home-logo-yori" 
           alt="YoRI"
         />
@@ -499,7 +499,7 @@ onUnmounted(() => {
 }
 
 .logo-ri {
-  height: 52px;
+  height: 38px;
   width: auto;
   object-fit: contain;
   display: block;
@@ -522,15 +522,15 @@ onUnmounted(() => {
     font-size: 1.2rem;
   }
   .logo-ri {
-    height: 36px !important;
+    height: 22px !important;
   }
   .logo-ri.logo-img-90hp {
-    height: 76px !important;
+    height: 50px !important;
     transform: none !important;
   }
   .logo-ri.logo-img-burakku {
-    height: 30px !important;
-    padding: 3px 8px !important;
+    height: 22px !important;
+    padding: 2px 6px !important;
     transform: none !important;
   }
 }
@@ -1244,12 +1244,12 @@ onUnmounted(() => {
   }
 
   .mobile-home-logo-yori {
-    height: 34px;
+    height: 20px;
     width: auto;
   }
 
   .mobile-home-logo-90hp {
-    height: 38px;
+    height: 24px;
     width: auto;
   }
 

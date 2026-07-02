@@ -119,14 +119,14 @@ We work with artists who believe melody can be loud, vulnerability can be powerf
 
         <div class="burakku-hero-actions">
           <a href="#burakku-artists" class="btn-burakku-primary">
-            <span>TEMUKAN ARTIS</span>
+            <span>DISCOVER ARTISTS</span>
             <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2.5" fill="none">
               <line x1="5" y1="12" x2="19" y2="12"></line>
               <polyline points="12 5 19 12 12 19"></polyline>
             </svg>
           </a>
           <a href="#burakku-merch" class="btn-burakku-ghost">
-            <span>LIHAT MERCH</span>
+            <span>VIEW MERCH</span>
           </a>
         </div>
 
@@ -147,31 +147,54 @@ We work with artists who believe melody can be loud, vulnerability can be powerf
             <div class="artist-card-glow"></div>
             <div class="artist-card-content">
               <div class="artist-logo-wrap">
-                <img src="/logo/logo.png" alt="YoRI Logo" class="artist-logo artist-logo-yori" />
+                <img src="/logo/YoriLogo.png" alt="YoRI Logo" class="artist-logo artist-logo-yori" />
               </div>
               <div class="artist-info">
-                <div class="artist-tag">SOLO ARTIST</div>
+                <div class="artist-tags-row">
+                  <span class="artist-tag">SOLO ARTIST</span>
+                </div>
                 <h3 class="artist-name-card">YoRI</h3>
                 <p class="artist-bio-card">
-                  Aurel Mayori — penulis lagu dengan lirik puitis & emosional. Dari idol group ke solo artist yang tak henti bereksplor.
+                  Aurel Mayori — songwriter with poetic & emotional lyrics. From idol group to solo artist who never stops exploring.
                 </p>
-                <div class="artist-stats">
-                  <div class="stat-item">
-                    <span class="stat-num">238K</span>
-                    <span class="stat-label">Instagram</span>
-                  </div>
-                  <div class="stat-item">
-                    <span class="stat-num">535K</span>
-                    <span class="stat-label">TikTok</span>
-                  </div>
-                  <div class="stat-item">
-                    <span class="stat-num">181K</span>
-                    <span class="stat-label">YouTube</span>
-                  </div>
+                <div class="artist-card-socials">
+                  <a href="https://www.instagram.com/yoribeneran" target="_blank" @click.stop class="card-social-link">
+                    <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg>
+                    <span class="social-handle">@yoribeneran</span>
+                  </a>
+                  <a href="https://www.tiktok.com/@yoribeneran" target="_blank" @click.stop class="card-social-link">
+                    <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
+                    </svg>
+                    <span class="social-handle">@yoribeneran</span>
+                  </a>
+                  <a href="https://x.com/yoribeneran" target="_blank" @click.stop class="card-social-link">
+                    <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                    <span class="social-handle">@yoribeneran</span>
+                  </a>
+                  <a href="https://youtube.com/@itsyori" target="_blank" @click.stop class="card-social-link">
+                    <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+                      <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                    </svg>
+                    <span class="social-handle">@itsyori</span>
+                  </a>
+                  <a href="https://open.spotify.com/artist/7KWwccszhCF3f6pYeVWMTD?si=oWvvv77KS7iSqTv-mpQMiQ" target="_blank" @click.stop class="card-social-link">
+                    <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.586 14.424c-.18.295-.565.387-.86.207-2.377-1.454-5.37-1.783-8.892-.982-.336.076-.67-.135-.747-.472-.077-.336.136-.67.472-.747 3.844-.877 7.14-.5 9.82 1.14.296.18.387.563.207.86zm1.226-2.723c-.227.367-.707.487-1.074.26-2.72-1.672-6.87-2.157-10.078-1.182-.413.125-.85-.107-.975-.52-.125-.413.107-.85.52-.975 3.665-1.112 8.232-.572 11.347 1.343.367.227.487.708.26 1.074zm.106-2.833C14.444 8.766 8.7 8.577 5.372 9.587c-.53.16-1.09-.142-1.25-.672-.16-.53.142-1.09.672-1.25 3.818-1.16 10.15-.94 14.164 1.442.477.285.632.9.347 1.378-.285.477-.9.632-1.378.347z"/>
+                    </svg>
+                    <span class="social-handle">YoRI</span>
+                  </a>
                 </div>
               </div>
               <div class="artist-card-footer">
-                <span class="artist-cta">Kunjungi Halaman</span>
+                <span class="artist-cta">Visit Page</span>
               </div>
             </div>
           </div>
@@ -184,28 +207,47 @@ We work with artists who believe melody can be loud, vulnerability can be powerf
                 <img src="/90horsepower/logo90.png" alt="90 Horse Power Logo" class="artist-logo artist-logo-90hp" />
               </div>
               <div class="artist-info">
-                <div class="artist-tag">INDIE BAND</div>
+                <div class="artist-tags-row">
+                  <span class="artist-tag">INDIE BAND</span>
+                  <span class="artist-tag-separator">•</span>
+                  <span class="artist-tag">Est. 2013</span>
+                </div>
                 <h3 class="artist-name-card">90 Horsepower</h3>
                 <p class="artist-bio-card">
-                  Band indie rock dari Jakarta sejak 2013. Distorsi gitar, lirik jujur, dan energi garage rock yang autentik.
+                  Indie rock band from Jakarta since 2013. Guitar distortion, honest lyrics, and authentic garage rock energy.
                 </p>
-                <div class="artist-stats">
-                  <div class="stat-item">
-                    <span class="stat-num">3.5K</span>
-                    <span class="stat-label">Instagram</span>
-                  </div>
-                  <div class="stat-item">
-                    <span class="stat-num">2.6K</span>
-                    <span class="stat-label">YouTube</span>
-                  </div>
-                  <div class="stat-item">
-                    <span class="stat-num">2013</span>
-                    <span class="stat-label">Berdiri</span>
-                  </div>
+                <div class="artist-card-socials">
+                  <a href="https://www.instagram.com/90horsepower" target="_blank" @click.stop class="card-social-link">
+                    <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg>
+                    <span class="social-handle">@90horsepower</span>
+                  </a>
+                  <a href="https://www.tiktok.com/@90horsepower" target="_blank" @click.stop class="card-social-link">
+                    <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
+                    </svg>
+                    <span class="social-handle">@90horsepower</span>
+                  </a>
+                  <a href="https://www.youtube.com/@90HorsePower" target="_blank" @click.stop class="card-social-link">
+                    <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+                      <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                    </svg>
+                    <span class="social-handle">@90HorsePower</span>
+                  </a>
+                  <a href="https://open.spotify.com/artist/0Dgmxi8oh7NaL332kwpo3a?si=D4EeHyZ_TeaHptVC3nyQ9w" target="_blank" @click.stop class="card-social-link">
+                    <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.586 14.424c-.18.295-.565.387-.86.207-2.377-1.454-5.37-1.783-8.892-.982-.336.076-.67-.135-.747-.472-.077-.336.136-.67.472-.747 3.844-.877 7.14-.5 9.82 1.14.296.18.387.563.207.86zm1.226-2.723c-.227.367-.707.487-1.074.26-2.72-1.672-6.87-2.157-10.078-1.182-.413.125-.85-.107-.975-.52-.125-.413.107-.85.52-.975 3.665-1.112 8.232-.572 11.347 1.343.367.227.487.708.26 1.074zm.106-2.833C14.444 8.766 8.7 8.577 5.372 9.587c-.53.16-1.09-.142-1.25-.672-.16-.53.142-1.09.672-1.25 3.818-1.16 10.15-.94 14.164 1.442.477.285.632.9.347 1.378-.285.477-.9.632-1.378.347z"/>
+                    </svg>
+                    <span class="social-handle">90horsepower</span>
+                  </a>
                 </div>
               </div>
               <div class="artist-card-footer">
-                <span class="artist-cta">Kunjungi Halaman</span>
+                <span class="artist-cta">Visit Page</span>
               </div>
             </div>
           </div>
@@ -277,10 +319,10 @@ We work with artists who believe melody can be loud, vulnerability can be powerf
               <!-- Creator Info Section -->
               <div class="burakku-product-creator-row">
                 <div class="burakku-creator-circle-avatar" :class="product.creator === 'YoRI' ? 'avatar-yori' : 'avatar-90hp'">
-                  <img :src="product.creator === 'YoRI' ? '/logo/logo.png' : '/90horsepower/logo90.png'" alt="Logo" class="burakku-creator-avatar-img" />
+                  <img :src="product.creator === 'YoRI' ? '/logo/YoriLogo.png' : '/90horsepower/logo90.png'" alt="Logo" class="burakku-creator-avatar-img" />
                 </div>
                 <div class="burakku-creator-meta">
-                  <span class="burakku-creator-label">Disediakan oleh</span>
+                  <span class="burakku-creator-label">Provided by</span>
                   <span class="burakku-creator-name-bold">{{ product.creator }}</span>
                 </div>
               </div>
@@ -876,7 +918,11 @@ We work with artists who believe melody can be loud, vulnerability can be powerf
 }
 
 .artist-logo-wrap {
-  margin-bottom: 0;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 20px;
 }
 
 .artist-logo {
@@ -884,26 +930,38 @@ We work with artists who believe melody can be loud, vulnerability can be powerf
   display: block;
 }
 .artist-logo-yori {
-  height: 110px;
+  height: 38px;
   width: auto;
 }
 
 .artist-logo-90hp {
-  height: 240px;
+  height: 180px;
   width: auto;
 }
 
 .artist-card-yori .artist-logo-wrap {
-  margin-bottom: -15px;
+  margin-bottom: 0;
 }
 
 .artist-card-90hp .artist-logo-wrap {
-  margin-top: -45px;
-  margin-bottom: -95px;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .artist-info {
   flex: 1;
+}
+
+.artist-tags-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.artist-tag-separator {
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 0.8rem;
 }
 
 .artist-tag {
@@ -913,7 +971,46 @@ We work with artists who believe melody can be loud, vulnerability can be powerf
   letter-spacing: 2.5px;
   color: var(--accent-cyan);
   text-transform: uppercase;
-  margin-bottom: 8px;
+}
+
+/* Artist Card Social Links Grid */
+.artist-card-socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 22px;
+  margin-top: 16px;
+  margin-bottom: 24px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.card-social-link {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: var(--transition-smooth);
+}
+
+.card-social-link:hover {
+  color: var(--accent-cyan);
+  transform: translateY(-2px);
+}
+
+.card-social-link .social-icon {
+  width: 22px;
+  height: 22px;
+  color: var(--accent-cyan);
+  transition: var(--transition-smooth);
+}
+
+.card-social-link:hover .social-icon {
+  filter: drop-shadow(0 0 6px rgba(255, 42, 109, 0.5));
 }
 
 .artist-name-card {
@@ -1088,17 +1185,38 @@ We work with artists who believe melody can be loud, vulnerability can be powerf
     padding: 24px 24px 16px 24px;
   }
   
+  .artist-logo-wrap {
+    height: 60px;
+    margin-bottom: 15px;
+  }
+
   .artist-logo-yori {
-    height: 85px;
+    height: 28px;
   }
   
   .artist-logo-90hp {
-    height: 180px;
+    height: 130px;
   }
 
   .artist-card-90hp .artist-logo-wrap {
-    margin-top: -25px;
-    margin-bottom: -62px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  /* Mobile adjustments for card socials */
+  .artist-card-socials {
+    gap: 10px 14px;
+    margin-top: 12px;
+    margin-bottom: 16px;
+    padding-top: 12px;
+  }
+  .card-social-link {
+    font-size: 0.8rem;
+    gap: 6px;
+  }
+  .card-social-link .social-icon {
+    width: 16px;
+    height: 16px;
   }
 }
 /* ===================================================

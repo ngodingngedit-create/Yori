@@ -5,7 +5,7 @@
       <div class="bio-column">
         <h2 class="section-title">ABOUT YoRI</h2>
         <p class="bio-text">
-          YoRI (Aurel Mayori) memulai karier di dunia hiburan sejak usia 9 tahun sebagai aktris. Perjalanan panjangnya dari mantan member idol group hingga solo artist membentuk identitasnya sebagai penulis lagu dengan lirik puitis, penuh emosi, dan selalu bereksplorasi di berbagai genre musik.
+          YoRI (Aurel Mayori) began her career in the entertainment industry at the age of 9 as an actress. Her long journey from former idol group member to solo artist has forged her identity as a songwriter, characterized by poetic, emotionally charged lyrics and a continuous exploration of diverse music genres.
         </p>
         <a href="#about-detail" class="btn btn-outline btn-more-about">
           <span>MORE ABOUT YoRI</span>
@@ -20,7 +20,7 @@
       <div class="socials-column">
         <div class="social-metrics-container">
           <!-- Instagram -->
-          <div class="social-card">
+          <a href="https://www.instagram.com/yoribeneran" target="_blank" class="social-card" style="text-decoration: none;">
             <div class="icon-wrapper instagram">
               <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
@@ -28,56 +28,48 @@
                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
               </svg>
             </div>
-            <div class="metric-count">238K</div>
-            <div class="metric-label">FOLLOWERS</div>
             <div class="metric-handle">@yoribeneran</div>
-          </div>
+          </a>
 
           <!-- Divider -->
           <div class="social-divider"></div>
 
           <!-- TikTok -->
-          <div class="social-card">
+          <a href="https://www.tiktok.com/@yoribeneran" target="_blank" class="social-card" style="text-decoration: none;">
             <div class="icon-wrapper tiktok">
               <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
               </svg>
             </div>
-            <div class="metric-count">535K</div>
-            <div class="metric-label">FOLLOWERS</div>
             <div class="metric-handle">@yoribeneran</div>
-          </div>
+          </a>
 
           <!-- Divider -->
           <div class="social-divider"></div>
 
           <!-- X -->
-          <div class="social-card">
+          <a href="https://x.com/yoribeneran" target="_blank" class="social-card" style="text-decoration: none;">
             <div class="icon-wrapper twitter-x">
               <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
               </svg>
             </div>
-            <div class="metric-count">46.7K</div>
-            <div class="metric-label">FOLLOWERS</div>
-            <div class="metric-handle">@ItsYoRi</div>
-          </div>
+            <div class="metric-handle">@yoribeneran</div>
+          </a>
 
           <!-- Divider -->
           <div class="social-divider"></div>
 
           <!-- YouTube -->
-          <div class="social-card">
+          <a href="https://youtube.com/@itsyori" target="_blank" class="social-card" style="text-decoration: none;">
             <div class="icon-wrapper youtube">
               <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
                 <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
               </svg>
             </div>
-            <div class="metric-count">181K</div>
-            <div class="metric-label">FOLLOWERS</div>
-            <div class="metric-handle">YoRi</div>
-          </div>
+            <div class="metric-handle">@itsyori</div>
+          </a>
         </div>
       </div>
     </div>
@@ -229,6 +221,11 @@
   transition: var(--transition-smooth);
 }
 
+.icon-wrapper svg {
+  width: 38px !important;
+  height: 38px !important;
+}
+
 .social-card:hover .icon-wrapper {
   opacity: 1;
   color: var(--accent-cyan);
@@ -240,33 +237,16 @@
   stroke-width: 1.75;
 }
 
-.metric-count {
-  font-family: var(--font-heading);
-  font-size: 2.1rem;
-  font-weight: 800;
-  color: var(--accent-cyan);
-  line-height: 1.1;
-  margin-bottom: 4px;
-  text-shadow: 0 0 15px rgba(255, 42, 109, 0.25);
+.metric-handle {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-secondary);
   transition: var(--transition-smooth);
 }
 
-.social-card:hover .metric-count {
-  text-shadow: 0 0 20px rgba(255, 42, 109, 0.6);
-}
-
-.metric-label {
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  color: var(--text-muted);
-  margin-bottom: 6px;
-}
-
-.metric-handle {
-  font-size: 0.82rem;
-  font-weight: 500;
-  color: var(--text-secondary);
+.social-card:hover .metric-handle {
+  color: var(--accent-cyan);
+  text-shadow: 0 0 10px rgba(255, 42, 109, 0.4);
 }
 
 /* Vertical Dividers */
@@ -297,8 +277,8 @@
     display: none;
   }
   .social-card {
-    flex: 0 0 100px !important;
-    min-width: 100px !important;
+    flex: 0 0 115px !important;
+    min-width: 115px !important;
   }
   .social-card:not(.last-social-card) {
     border-right: 1px solid rgba(255, 42, 109, 0.15) !important;
@@ -306,19 +286,16 @@
   .theme-90hp .social-card:not(.last-social-card) {
     border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
   }
-  .metric-count {
-    font-size: 1.25rem !important;
-  }
-  .metric-label {
-    font-size: 0.5rem !important;
-    letter-spacing: 0.5px !important;
+  .icon-wrapper svg {
+    width: 28px !important;
+    height: 28px !important;
   }
   .metric-handle {
-    font-size: 0.62rem !important;
+    font-size: 0.8rem !important;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 90px;
+    max-width: 110px;
   }
 }
 </style>
