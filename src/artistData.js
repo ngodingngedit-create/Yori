@@ -6,7 +6,7 @@ export const artistData = {
     signature: 'YoRI',
     tagline: 'Experimenting With Imagination',
     bio: 'YoRI (Aurel Mayori) began her career in the entertainment industry at the age of 9 as an actress. Her long journey from former idol group member to solo artist has forged her identity as a songwriter, characterized by poetic, emotionally charged lyrics and a continuous exploration of diverse music genres.',
-    heroImage: '/home/yori.png',
+    heroImage: '/home/yori.jpg',
     socials: {
       instagram: { count: '238K', handle: '@yoribeneran', url: 'https://www.instagram.com/yoribeneran' },
       tiktok: { count: '535K', handle: '@yoribeneran', url: 'https://www.tiktok.com/@yoribeneran' },
@@ -343,7 +343,7 @@ export const artistData = {
     signature: '90HP',
     tagline: 'Songs for Ordinary Fighters',
     bio: 'Ninety Horsepower (90HP) is an Indonesian Alternative Power Pop band blending energetic guitars, memorable melodies, and honest stories about ordinary people who choose to keep moving. 90HP creates songs that embrace resilience, small victories, and hope without pretending life is easy.',
-    heroImage: '/home/90hp_hero.png',
+    heroImage: '/home/90hp.png',
     socials: {
       instagram: { count: '', handle: '@90horsepower', url: 'https://www.instagram.com/90horsepower' },
       tiktok: { count: '', handle: '@90horsepower', url: 'https://www.tiktok.com/@90horsepower' },

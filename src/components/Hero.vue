@@ -47,8 +47,11 @@ const activeArtist = computed(() => artistData[currentArtist.value]);
             <span class="mobile-cross mcross-1">+</span>
             <span class="mobile-cross mcross-2">+</span>
 
-            <img :src="activeArtist.heroImage" :alt="activeArtist.name + ' Portrait'" class="hero-mobile-img" :class="{ 'is-logo': currentArtist === '90hp', 'yori-mobile-img': currentArtist === 'yori' }" />
-            <div class="hero-mobile-signature">{{ activeArtist.signature }}</div>
+            <img :src="activeArtist.heroImage" :alt="activeArtist.name + ' Portrait'" class="hero-mobile-img" :class="{ 'hp-mobile-img': currentArtist === '90hp', 'yori-mobile-img': currentArtist === 'yori' }" />
+            <div v-if="currentArtist === 'yori'" class="hero-mobile-signature-logo-container">
+              <img src="/logo/YoriLogo.png" class="hero-mobile-signature-logo" alt="YoRI Logo" />
+            </div>
+            <div v-else class="hero-mobile-signature">{{ activeArtist.signature }}</div>
           </div>
 
           <div class="hero-tagline-container">
@@ -79,7 +82,7 @@ const activeArtist = computed(() => artistData[currentArtist.value]);
 
         <!-- Right side: Portrait with planet rings and doodles -->
         <div class="hero-image-column">
-          <div class="hero-image-area" :class="{ 'yori-image-area': currentArtist === 'yori' }">
+          <div class="hero-image-area" :class="{ 'yori-image-area': currentArtist === 'yori', 'hp-image-area': currentArtist === '90hp' }">
             <!-- Planet Background elements -->
             <div class="planet-container">
               <!-- Dark abstract planet circle -->
@@ -105,10 +108,13 @@ const activeArtist = computed(() => artistData[currentArtist.value]);
 
             <!-- Centered portrait/logo image -->
             <!-- 90 HORSEPOWER HERO LOGO IMAGE -->
-            <img :src="activeArtist.heroImage" :alt="activeArtist.name + ' Portrait'" class="hero-portrait-img" :class="{ 'is-logo': currentArtist === '90hp', 'yori-portrait': currentArtist === 'yori' }" />
+            <img :src="activeArtist.heroImage" :alt="activeArtist.name + ' Portrait'" class="hero-portrait-img" :class="{ 'hp-portrait': currentArtist === '90hp', 'yori-portrait': currentArtist === 'yori' }" />
 
-            <!-- Handwritten signature overlay on the right -->
-            <div class="handdrawn-signature">{{ activeArtist.signature }}</div>
+            <!-- Handwritten signature or logo overlay on the right -->
+            <div v-if="currentArtist === 'yori'" class="hero-signature-logo-container">
+              <img src="/logo/YoriLogo.png" class="hero-signature-logo" alt="YoRI Logo" />
+            </div>
+            <div v-else class="handdrawn-signature">{{ activeArtist.signature }}</div>
           </div>
         </div>
       </div>
@@ -519,7 +525,7 @@ const activeArtist = computed(() => artistData[currentArtist.value]);
     display: flex;
     position: relative;
     width: 100%;
-    height: 340px;
+    height: 300px;
     justify-content: center;
     align-items: flex-end;
     margin-bottom: 5px !important;
@@ -529,14 +535,14 @@ const activeArtist = computed(() => artistData[currentArtist.value]);
 
 @media (max-width: 576px) {
   .hero-mobile-portrait {
-    height: 300px;
+    height: 260px;
     margin-bottom: 4px !important;
   }
 }
 
 @media (max-width: 380px) {
   .hero-mobile-portrait {
-    height: 260px;
+    height: 220px;
     margin-bottom: 2px !important;
   }
 }
@@ -582,40 +588,35 @@ const activeArtist = computed(() => artistData[currentArtist.value]);
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 98%);
 }
 
-.hero-mobile-img.is-logo {
+.hp-mobile-img {
   width: auto !important;
   height: 100% !important;
   max-width: 100% !important;
   object-fit: contain !important;
   object-position: bottom center !important;
-  -webkit-mask-image: none !important;
-  mask-image: none !important;
-  background: none !important;
-  border: none !important;
-  box-shadow: none !important;
-  backdrop-filter: none !important;
-  filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.4)) !important;
-  transform: translateY(40px) !important;
-  margin-bottom: 0px !important;
-  padding: 0 !important;
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 98%) !important;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 98%) !important;
+  filter: drop-shadow(0 -8px 30px rgba(139, 92, 246, 0.2)) !important;
+  transform: translateY(5px) scale(0.95) !important;
+  transform-origin: bottom center;
 }
 
 /* Make mobile portrait container for 90HP significantly taller */
 .hero-mobile-portrait.is-90hp {
-  height: 480px !important;
+  height: 300px !important;
   margin-bottom: 5px !important;
 }
 
 @media (max-width: 576px) {
   .hero-mobile-portrait.is-90hp {
-    height: 430px !important;
+    height: 260px !important;
     margin-bottom: 4px !important;
   }
 }
 
 @media (max-width: 380px) {
   .hero-mobile-portrait.is-90hp {
-    height: 380px !important;
+    height: 220px !important;
     margin-bottom: 2px !important;
   }
 }
@@ -634,9 +635,29 @@ const activeArtist = computed(() => artistData[currentArtist.value]);
   text-shadow: 0 0 10px rgba(255, 42, 109, 0.4);
 }
 
+.hero-mobile-signature-logo-container {
+  position: absolute;
+  bottom: 20%;
+  right: 18%;
+  z-index: 3;
+  pointer-events: none;
+  width: 100px;
+  transform: rotate(-8deg);
+}
+
+.hero-mobile-signature-logo {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 0 8px rgba(255, 42, 109, 0.5));
+}
+
 @media (max-width: 576px) {
   .hero-mobile-signature {
     font-size: 2rem;
+    right: 15%;
+  }
+  .hero-mobile-signature-logo-container {
+    width: 85px;
     right: 15%;
   }
 }
@@ -644,6 +665,10 @@ const activeArtist = computed(() => artistData[currentArtist.value]);
 @media (max-width: 380px) {
   .hero-mobile-signature {
     font-size: 1.7rem;
+    bottom: 16%;
+  }
+  .hero-mobile-signature-logo-container {
+    width: 70px;
     bottom: 16%;
   }
 }
@@ -815,16 +840,17 @@ const activeArtist = computed(() => artistData[currentArtist.value]);
   pointer-events: none;
 }
 
-.hero-portrait-img.is-logo {
-  width: 92% !important;
-  height: auto !important;
-  max-width: none !important;
-  object-fit: contain !important;
-  object-position: bottom center !important;
-  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 98%) !important;
-  mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 98%) !important;
-  filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.5)) !important;
-  transform: translateX(-15px) translateY(35px) !important;
+.hero-portrait-img.hp-portrait {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom center;
+  z-index: 2;
+  position: relative;
+  pointer-events: none;
+  filter: drop-shadow(0 -10px 40px rgba(139, 92, 246, 0.2));
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0) 98%) !important;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0) 98%) !important;
 }
 
 /* Handwritten signature script overlay */
@@ -841,9 +867,43 @@ const activeArtist = computed(() => artistData[currentArtist.value]);
   text-shadow: 0 0 10px rgba(255, 42, 109, 0.4);
 }
 
+.handdrawn-signature {
+  position: absolute;
+  bottom: 30%;
+  right: 12%;
+  font-family: var(--font-tagline);
+  font-size: 3.5rem;
+  color: var(--accent-cyan);
+  transform: rotate(-8deg);
+  z-index: 3;
+  pointer-events: none;
+  text-shadow: 0 0 10px rgba(255, 42, 109, 0.4);
+}
+
+.hero-signature-logo-container {
+  position: absolute;
+  bottom: 30%;
+  right: 12%;
+  z-index: 3;
+  pointer-events: none;
+  width: 140px;
+  transform: rotate(-8deg);
+}
+
+.hero-signature-logo {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 0 12px rgba(255, 42, 109, 0.5));
+}
+
 @media (max-width: 992px) {
   .handdrawn-signature {
     font-size: 2.8rem;
+    bottom: 22%;
+    right: 10%;
+  }
+  .hero-signature-logo-container {
+    width: 110px;
     bottom: 22%;
     right: 10%;
   }
@@ -1016,7 +1076,7 @@ const activeArtist = computed(() => artistData[currentArtist.value]);
 
 /* Yori Specific Hero Image and Area Adjustments */
 .yori-image-area {
-  transform: translateY(60px) scale(1.36) !important;
+  transform: translateY(15px) scale(0.95) !important;
 }
 
 .yori-portrait {
@@ -1024,7 +1084,19 @@ const activeArtist = computed(() => artistData[currentArtist.value]);
 }
 
 .yori-mobile-img {
-  transform: translateY(22px) scale(1.45) !important;
+  transform: translateY(5px) scale(0.95) !important;
   transform-origin: bottom center;
+}
+
+/* 90HP Specific Hero Image and Area Adjustments */
+.hp-image-area {
+  transform: translateY(15px) scale(0.95) !important;
+}
+
+@media (max-width: 992px) {
+  .yori-image-area,
+  .hp-image-area {
+    transform: translateY(5px) scale(0.85) !important;
+  }
 }
 </style>
